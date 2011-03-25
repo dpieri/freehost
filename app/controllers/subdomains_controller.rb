@@ -1,0 +1,2 @@
+class SubdomainsController < ApplicationController
+end
