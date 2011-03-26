@@ -1,0 +1,24 @@
+/* TYPOGRAPHY---------------------------------------------------------------------- */
+
+/* STRUCTURE---------------------------------------------------------------------- */
+#whitestrip{
+		background-color:	 	white;
+		height:					240px;
+		width: 					100%;
+		padding-top: 			50px;
+		padding-bottom: 		50px;
+		position: 				relative;
+}
+#video{
+		padding: 				7px 7px 7px 7px;
+		background-color: 		white;
+		-moz-box-shadow: 		0px 0px 3px #cccccc;
+		-webkit-box-shadow: 	0px 0px 3px #cccccc;
+		box-shadow: 			0px 0px 3px #cccccc;
+		position:				absolute;
+		top:					60px;
+		z-index:				2;
+}
+/* UTILITY---------------------------------------------------------------------- */
+
+/* CUSTOM LAYOUT---------------------------------------------------------------------- */
