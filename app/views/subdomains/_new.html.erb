@@ -1,6 +1,6 @@
 <%= form_for @subdomain, :html => {:multipart => true} do |s|%>
 	<%= s.label "subdomain"%>
-	<%= s.text_field :name%>
+	<%= s.text_field :name, :class => 'subdomain' %>
 	<br />
 	<%= s.label "zip file"%>
 	<%= file_field_tag 'zip' %>
