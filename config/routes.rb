@@ -1,11 +1,13 @@
 FreeHost::Application.routes.draw do
   
+  devise_for :users
+
   get "home/subdomain"
 
   resources :users
   resources :subdomains
   
-  match '/' => "subdomain#show", :constraints => {:subdomain => /.+/}
+  match '/' => "subdomains#show", :constraints => {:subdomain => /.+/}
   root :to => "home#show"
   
   

@@ -5,3 +5,6 @@
 #
 #   cities = City.create([{ :name => 'Chicago' }, { :name => 'Copenhagen' }])
 #   Mayor.create(:name => 'Daley', :city => cities.first)
+
+
+subdomains = Subdomain.create([{:name => 'dane', :is_confirmed => false}, {:name => 'vivan', :is_confirmed => false}, {:name => 'david', :is_confirmed => false}])
