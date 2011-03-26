@@ -1,8 +1,8 @@
 FreeHost::Application.routes.draw do
   
-  devise_for :users
-
-  get "home/subdomain"
+  devise_for :users, :controllers => {:registrations => "registrations"}
+  
+  match '/welcome' => "subdomains#index"
 
   resources :users
   resources :subdomains

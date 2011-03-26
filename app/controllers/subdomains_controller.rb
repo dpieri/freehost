@@ -26,7 +26,32 @@ class SubdomainsController < ApplicationController
     end
     Subdomain.unzip(path, directory) ? flash[:notice] = "All good" : flash[:error] = "Error unzipping your file"
     Subdomain.move_up(directory, name)
-    sub.save ? flash[:notice] = "Website uploaded!" : flash[:error] = "Oops! Something wen't wrong. Please try again"
-    redirect_to root_path
+    if sub.save 
+      flash[:notice] = "Website uploaded!"
+      session[:subdomain] = "#{sub.name}"
+      redirect_to "/welcome"
+    else 
+      flash[:error] = "Oops! Something wen't wrong. Please try again"
+      redirect_to root_path
+    end
+  end
+  
+  def index
+    @subdomain = Subdomain.where(:name => session[:subdomain], :is_confirmed => false).first
+    redirect_to root_path and return unless @subdomain
+    
+    #signup for stuff
+    @user = User.new
+    @user_resource_name = :user
+    
+    #list the files
+    directory = "#{ASSETS_ROOT}/user_#{@subdomain.name}"
+    @files = []
+    Dir.foreach(directory) do |e|
+      skip = false
+      ['.', '..', '__MACOSX'].each{|test| skip = true if test == e}
+      next if skip
+      @files << [File.directory?("#{directory}/#{e}"), e]
+    end
   end
 end
