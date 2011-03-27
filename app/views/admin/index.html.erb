@@ -2,24 +2,24 @@
 <div class="w960">
 	<h2 class="maintitle">MANAGE YOUR SITES</h2>
 <br class="clear">
-	<div id="leftbox">
-		<div class="headerbar">Domains</div>
-		<ul>
-			<% @subdomains.each do |s|%>
-				<a href=""><li>/<%=s.name%></li></a>
-			<% end %>
-			<li class="last">/<input type="text" name="newDomain" placeholder="Add New Site"/></li>
-		</ul>
-	</div>
-	<div id="leftbox1">
-		<div class="headerbar2">Files</div>	
-		<ul id="file_list">
-			<%= render :partial => 'admin/files/file_list', :locals => {:files => @files}%>
-		</ul>
-	</div>
-	<div id="rightbox">	
-		<img src="/images/preview1.jpg">
-		<a href="" class="right" style="margin-top:20px";>Preview</a>
-	</div>
+<div id="leftbox">
+	<div class="headerbar">Domains</div>
+	<ul>
+		<% @subdomains.each do |s|%>
+			<a href=""><li>/<%=s.name%></li></a>
+		<% end %>
+		<li class="last">/<input type="text" name="newDomain" placeholder="Add New Site"/></li>
+	</ul>
+</div>
+<div id="leftbox1">
+	<div class="headerbar2">Files</div>	
+	<ul id="file_list">
+		<%= render :partial => 'admin/files/file_list', :locals => {:files => @files}%>
+	</ul>
+</div>
+<div id="rightbox">	
+	<img src="/images/preview1.jpg">
+	<a href="" class="right" style="margin-top:20px";>Preview</a>
+</div>
 
 

@@ -3,13 +3,17 @@
 <head>
   <title>FreeHost</title>
   <%= stylesheet_link_tag "reset","core","landing", "manage" %>
-  <%= javascript_include_tag "jquery-1.5.1.min.js","rails" %>
+  <%= javascript_include_tag "jquery-1.5.1.min.js", "application.js"%>
   <%= csrf_meta_tag %>
 </head>
 <body>
+	<% flash.each do |name, msg| %>
+		<%= content_tag :div, msg, :class => "flash", :id => "#{name}", :style => "display:none;"%>
+		<script>$('.flash').fadeIn().delay(2000).fadeOut('slow'); </script>
+	<% end %>
 	<div id="topbar">
 		<div class="w960">
-			<span class="logo left">coral<span class="orange">rift</span></span><a href="#" class="right">Login</a>
+			<a href="/">  <span class="logo left">coral<span class="orange">rift</span></span>	</a>
 			<% if current_user %>
 				<%= link_to "Logout", "users/sign_out", :class => "right"%>
 				<%= link_to current_user.email, "/admin", :class => "right"%>
@@ -18,9 +22,6 @@
 			<% end %>
 		</div>
 	</div>
-	<% flash.each do |name, msg| %>
-		<%= content_tag :div, msg, :id => "flash_#{name}"%>
-	<% end %>
 <%= yield %>
 
 </body>
