@@ -1,5 +1,7 @@
 /* TYPOGRAPHY---------------------------------------------------------------------- */
-
+span.orange{
+		color:					#ff641e;
+}
 h1{
 		font-family:			"ratio-1","ratio-2",sans-serif;
 		line-height: 			48px;

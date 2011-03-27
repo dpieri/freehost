@@ -1,12 +1,20 @@
 <%= form_for @subdomain, :html => {:multipart => true} do |s|%>
 	<div class="col6">
-		<%= s.label "zip file"%>
-		<%= file_field_tag 'zip' %>
+		<%= image_tag "step1.png", :class=>"left"%>
+		<div id="upload_zone">
+			<%= s.label "Upload your zip file"%><br>
+			<%= file_field_tag 'zip' %>
+		</div>
 	</div>
+	<div class="gutter"></div>
 	<div class="col6">
-		<%= s.label "reefcloud.com/"%>
-		<%= s.text_field :name, :class => 'subdomain' %>
-		<br><br>
-		<%= s.submit("Do it!")%>
+		<%= image_tag "step2.png", :class=>"left"%>
+		<div id="subdomain">Claim a subdomain:<br>
+		<%= s.label " coralrift.com/", :id=>"logotype"%>
+		<%= s.text_field :name, :class => 'subdomain', :placeholder=>"Your name" %>
+		</div>
+		<br class="clear"><br>
+		<%= image_tag("step3.png")%>
+		<%= s.submit("Create website")%>
 	</div>
 <% end %>
