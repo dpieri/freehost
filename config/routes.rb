@@ -1,6 +1,6 @@
 FreeHost::Application.routes.draw do
   
-  devise_for :users, :controllers => {:registrations => "registrations"}
+  devise_for :users, :controllers => {:registrations => "registrations", :sessions => "sessions"}
   
   match '/welcome' => "subdomains#index"
   match '/admin' => "admin#index"

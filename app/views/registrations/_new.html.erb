@@ -1,16 +1,32 @@
-<h2>Please create an account to claim your site</h2>
+<h2 class="maintitle">PREVIEW</h2>
+<h2 style="margin-left:360px;" class="maintitle">SIGN UP</h2>
+<div class="clear">
+<div id="leftarea">
+<div id="leftbox">
+	<img src="images/preview1.jpg">
+</div>
+<div id="lefttext">
+	<a class="boxed" href="">http://www.coralrift.com/<%= @subdomain.name %></a>
+	<br><br>
+	Your site is done! The preview will expire at midnight tomorrow. Sign up
+on your right or <%= link_to "login", "/users/sign_in"%> to claim it permanently!
+</div>
+</div>
 
-<%= form_for(@user, :as => @user_resource_name, :url => registration_path(@user_resource_name)) do |f| %>
+<div id="rightbox">
+	Register an account to keep this subdomain and manage your websites. Already a member? <%= link_to "login", "/users/sign_in"%><br><br>
+	<%= form_for(@user, :as => @user_resource_name, :url => registration_path(@user_resource_name)) do |f| %>
+	  <%= f.label :email, 'Email address'%>
+	  <%= f.email_field :email %><br><br>
 
-  <p><%= f.label :email %><br />
-  <%= f.email_field :email %></p>
+	  <%= f.label :password %>
+	  <%= f.password_field :password %><br><br>
 
-  <p><%= f.label :password %><br />
-  <%= f.password_field :password %></p>
-
-  <p><%= f.label 'Password again, please' %><br />
-  <%= f.password_field :password_confirmation %></p>
-
-  <p><%= f.submit "Sign up" %></p>
-<% end %>
+	  <%= f.label 'Confirm password' %>
+	  <%= f.password_field :password_confirmation %><br><br>
+	
+	  <label>&nbsp;</label>
+	  <%= f.submit "Sign up" %>
+	<% end %>
+</div>
 

@@ -25,14 +25,13 @@
 #upload_zone{
 		padding:				30px;
 		background-color:		white;
-		margin-left:			10px;
 		border-style:			dashed;
 		border-width:			1px;
 		border-color:			#CCCCCC;
 		float: left;
 }
-#subdomain{
-		margin-left:			10px;
+.bullet{
+		margin-right:			10px;
 		float: left;
 }
 /* UTILITY---------------------------------------------------------------------- */

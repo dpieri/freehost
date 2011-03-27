@@ -13,6 +13,12 @@ class SubdomainsController < ApplicationController
       return
     end
     
+    unless params[:zip]
+      flash[:error] = "Please choose a zip file to upload first"
+      redirect_to root_path
+      return
+    end
+    
     sub = Subdomain.new
     sub.name = params[:subdomain][:name]
     sub.is_confirmed = false

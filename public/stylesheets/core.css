@@ -44,17 +44,17 @@ a.cta{
 		text-decoration:		none;
 		font-weight:			bold;
 		-moz-border-radius:		2px; 
-	   -webkit-border-radius:	2px; 
-	   border-radius:			2px;
-	   background: -webkit-gradient(linear, left top, left bottom, from(#ffa776), to(#ff641e));
-		background: -moz-linear-gradient(top,  #ffa776,  #ff641e);
+	   	-webkit-border-radius:	2px; 
+	   	border-radius:			2px;
+	   	background: 			-webkit-gradient(linear, left top, left bottom, from(#ffa776), to(#ff641e));
+		background: 			-moz-linear-gradient(top,  #ffa776,  #ff641e);
 		cursor:					pointer;
 }
 a img{
 		border: 				none;
 }
 p{
-		margin-top: 			0px;
+		margin-top: 			10px;
 }
 .quiet{
 		color:					#999999;
@@ -77,7 +77,8 @@ p{
 input{
 		font-size:				14px;
 }
-input[type=text]{
+input[type=text],input[type=password],input[type=email]{
+		width: 					225px;
 		-moz-border-radius: 	2px; 
 		-webkit-border-radius: 	2px; 
 		border-radius: 			2px;
@@ -96,7 +97,7 @@ input:-moz-placeholder {
 input[type=submit]{
 		background-color: 		#DDD;
 		display:				inline-block;
-		margin-left: 			5px;
+		margin-left: 			0px;
 		padding:				5px 10px 6px 10px;
 		color:					#000;
 		font-weight:			bold;
