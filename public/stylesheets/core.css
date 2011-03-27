@@ -61,6 +61,17 @@ p{
 		color:					#999999;
 		font-size: 				12px;
 }
+.white{
+		color:					white;
+		font-size: 				12px;
+}
+.maintitle{
+		position: 				relative;
+		float: 					left;
+		letter-spacing: 		0.2em;
+		color:					#ff641e;
+		top:					74px;
+}
 /* STRUCTURE---------------------------------------------------------------------- */
 body {
 		background-color:		#edf1ec;

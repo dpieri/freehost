@@ -1,7 +1,16 @@
-<% files.each do |f|%>
-	<% if f[0] %> <!-- It's a directory -->
-		<%= link_to f[1], "/admin/files/?path=#{f[2]}"%> <br />
-	<% else %>
-		<%= f[1] %><br />
-	<% end %>
-<% end %>
+<div id="leftbox1">
+	<div class="headerbar2">Files</div>	
+	<ul>
+		<li>
+			<img src="/images/smalldrop.jpg">
+			<p>Drop a new zipped file here to replace all files, or drop individual file at corresponding space to replace a specific file.</p>
+		</li>
+		<% files.each do |f|%>
+			<% if f[0] %> <!-- It's a directory -->
+				<li><%= link_to f[1], "/admin/files/?path=#{f[2]}"%> </li>
+			<% else %>
+				<li><%= f[1] %> </li>
+			<% end %>
+		<% end %>
+	</ul>	
+</div>
