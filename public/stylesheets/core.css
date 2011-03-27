@@ -1,7 +1,4 @@
 /* TYPOGRAPHY---------------------------------------------------------------------- */
-span.orange{
-		color:					#ff641e;
-}
 h1{
 		font-family:			"ratio-1","ratio-2",sans-serif;
 		line-height: 			48px;
@@ -62,6 +59,12 @@ p{
 .quiet{
 		color:					#999999;
 		font-size: 				12px;
+}
+.white{
+		color:					white;
+}
+.orange{
+		color:					#ff641e;
 }
 /* STRUCTURE---------------------------------------------------------------------- */
 body {
