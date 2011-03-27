@@ -1,6 +1,13 @@
 <div id="topbar">
 	<div class="w960">
-		<span class="logo left">reefcloud</span><a href="#" class="right">Login</a>
+		<span class="logo left">reefcloud</span>
+		<% if current_user %>
+			<% puts current_user%>
+			<%= link_to "Logout", "users/sign_out", :class => "right"%>
+			<%= link_to current_user.email, "/admin", :class => "right"%>
+		<% else %>
+			<a href="/users/sign_in" class="right">Login</a>
+		<% end %>
 	</div>
 </div>
 <div id="whitestrip">
