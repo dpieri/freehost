@@ -1,5 +1,7 @@
 /* TYPOGRAPHY---------------------------------------------------------------------- */
-
+span.orange{
+		color:					#ff641e;
+}
 h1{
 		font-family:			"ratio-1","ratio-2",sans-serif;
 		line-height: 			48px;
@@ -122,10 +124,10 @@ body {
 
 /* UTILITY---------------------------------------------------------------------- */
 hr{
-		color:					#ffffff;
-		background-color: 		#ffffff;
-		border: 				1px dotted #cccccc;
-		border-style: 			none none dotted;
+		color:					#ddd;
+		background-color: 		#ddd;
+		border: 				0px;
+		height: 				1px;
 }
 .left{
 		float:					left;

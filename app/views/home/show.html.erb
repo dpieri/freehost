@@ -1,20 +1,8 @@
-<div id="topbar">
-	<div class="w960">
-		<span class="logo left">reefcloud</span>
-		<% if current_user %>
-			<% puts current_user%>
-			<%= link_to "Logout", "users/sign_out", :class => "right"%>
-			<%= link_to current_user.email, "/admin", :class => "right"%>
-		<% else %>
-			<a href="/users/sign_in" class="right">Login</a>
-		<% end %>
-	</div>
-</div>
 <div id="whitestrip">
 	<div class="w960">
 		<div class="col6"><div class="col5">
 			<h1>Instant Hosting for Simple Websites</h1>
-			<p>Reefcloud makes it easy to get your website online. Just drag and drop 
+			<p>Coralrift makes it easy to get your website online. Just drag and drop 
 			your zipped website and choose a name. Perfect for small businesses, 
 			freelancers, and prototyping!</p>
 			<a href="#" class="cta">Sign me up!</a><span class="quiet">Or take it for a spin below</span>
@@ -28,4 +16,6 @@
 <div class="w960">
 	<br><br><br><br>
 	<%= render :partial => 'subdomains/new'%>
+	<br class="clear"><br><br><br>
+	<hr>
 </div>
