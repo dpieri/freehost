@@ -1,0 +1,3 @@
+<strong><%= @parent %></strong>
+<%= link_to "Back Up", "/admin/files/?path=#{@parent_path}"%> <br />
+<%= render :partial => 'admin/files/file_list', :locals => {:files => @files}%>

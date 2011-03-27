@@ -16,6 +16,7 @@ class SubdomainsController < ApplicationController
     sub = Subdomain.new
     sub.name = params[:subdomain][:name]
     sub.is_confirmed = false
+    sub.key = "monkey"
     uploaded_io = params[:zip]
     directory = "/www/freehost/assets/user_#{sub.name}"
     Dir.mkdir directory unless File.directory?(directory)
