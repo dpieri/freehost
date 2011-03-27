@@ -1,7 +1,6 @@
 /* STRUCTURE---------------------------------------------------------------------- */
 #leftbox{
 	width:					220px;
-	height:					350px;
 	float:					left;	
 	background-color: 		white;
 	position: 				relative;
@@ -12,8 +11,7 @@
 	z-index: 				5;
 }
 #leftbox1{
-	width:					240px;
-	height:					350px;
+	width:					240px;;
 	float:					left;	
 	background-color: 		white;
 	position: 				relative;
@@ -99,7 +97,12 @@ input::-webkit-input-placeholder {
 	padding-bottom:			10px;
 	padding-top:			10px;
 	font-size: 				12px;
+}
+#leftbox1 ul li{
 	border-bottom: 			1px solid #ccc;
+}
+#leftbox1 ul li:last-child{
+	border-bottom: 			0px;
 }
 
 #leftbox1 ul li:first-child{
