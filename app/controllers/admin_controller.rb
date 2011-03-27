@@ -16,6 +16,7 @@ class AdminController < ApplicationController
     @parent_path = params[:path].sub("/#{@parent}", '')
     directory = "#{ASSETS_ROOT}/#{params[:path]}"
     @files = index_directory(directory, subdomain)
+    render :partial => 'admin/files/file_list',:locals => {:files => @files}
   end
   
   def index_directory(dir, subdomain)
