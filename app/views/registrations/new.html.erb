@@ -1,18 +1,25 @@
-<h2>Sign up</h2>
+<%= stylesheet_link_tag "add" %>
+<div class="w960">
+<h2 class="maintitle">SIGN UP</h2>
+<br class="clear">
+	<div id="rightbox">
+		Already a member? <%- if controller_name != 'sessions' %>
+		  <%= link_to "Sign in", new_session_path(resource_name) %><br /><br>
+		<% end -%>
+		<%= form_for(resource, :as => resource_name, :url => registration_path(resource_name)) do |f| %>
+		  <%= devise_error_messages! %>
 
-<%= form_for(resource, :as => resource_name, :url => registration_path(resource_name)) do |f| %>
-  <%= devise_error_messages! %>
+		  <%= f.label :email %>
+		  <%= f.email_field :email %><br><br>
 
-  <p><%= f.label :email %><br />
-  <%= f.email_field :email %></p>
+		  <%= f.label :password %>
+		  <%= f.password_field :password %><br><br>
 
-  <p><%= f.label :password %><br />
-  <%= f.password_field :password %></p>
-
-  <p><%= f.label :password_confirmation %><br />
-  <%= f.password_field :password_confirmation %></p>
-
-  <p><%= f.submit "Sign up" %></p>
-<% end %>
-
-<%= render :partial => "devise/shared/links" %>
+		  <%= f.label :password_confirmation %>
+		  <%= f.password_field :password_confirmation %><br><br>
+			
+		  <label>&nbsp;</label>
+		  <%= f.submit "Sign up" %>
+		<% end %>
+	</div>
+</div>

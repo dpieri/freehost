@@ -3,6 +3,7 @@
 	position: 				relative;
 	width:					460px;
 	top:					100px;
+	padding-right:			20px;
 }
 #leftbox{
 	width:					460px;
@@ -19,8 +20,7 @@
 	width:					400px;
 	height:					360px;
 	padding:				30px;
-	float:					left;
-	margin-left:			20px;	
+	float:					left;	
 	background-color: 		white;
 	position: 				relative;
 	top:					100px;
@@ -61,6 +61,5 @@ input[type=submit]{
 	float: 					left;
 	width:					440px;
 	color:					#666;
-	top:					30px;
 	font-size:				14px;
 }

@@ -14,7 +14,7 @@ on your right or <a href="">Login</a> to claim it permanently!
 </div>
 
 <div id="rightbox">
-	Register an account to keep this subdomain and manage your websites. Already a member? <a href="">Login</a><br><br>
+	Register an account to keep this subdomain and manage your websites. Already a member? <a href="">Login</a><br><br><br>
 	<%= form_for(@user, :as => @user_resource_name, :url => registration_path(@user_resource_name)) do |f| %>
 	  <%= f.label :email, 'Email address'%>
 	  <%= f.email_field :email %><br><br>
