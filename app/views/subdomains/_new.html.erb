@@ -1,9 +1,12 @@
 <%= form_for @subdomain, :html => {:multipart => true} do |s|%>
-	<%= s.label "subdomain"%>
-	<%= s.text_field :name, :class => 'subdomain' %>
-	<br />
-	<%= s.label "zip file"%>
-	<%= file_field_tag 'zip' %>
-	<br />
-	<%= s.submit%>
+	<div class="col6">
+		<%= s.label "zip file"%>
+		<%= file_field_tag 'zip' %>
+	</div>
+	<div class="col6">
+		<%= s.label "reefcloud.com/"%>
+		<%= s.text_field :name, :class => 'subdomain' %>
+		<br><br>
+		<%= s.submit("Do it!")%>
+	</div>
 <% end %>

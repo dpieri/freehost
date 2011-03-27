@@ -1,0 +1,130 @@
+/* TYPOGRAPHY---------------------------------------------------------------------- */
+
+h1{
+		font-family:			"ratio-1","ratio-2",sans-serif;
+		line-height: 			48px;
+		font-size:				42px;
+		font-weight:			400;
+		font-style: 			normal;
+		margin-top: 			10px;
+		margin-bottom: 			20px;
+}
+h2{
+		font-family: 			"ratio-1","ratio-2",sans-serif;
+		font-size: 				20px;
+		font-weight: 			400;
+		font-style: 			normal;
+		margin-bottom: 			8px;
+}
+h3{
+		font-family:			"Lucida Grande","Tahoma","Helvetica",sans-serif;
+		font-size:				12px;
+		font-weight: 			bold;
+		margin-top: 			10px;
+		margin-bottom: 			5px;
+}
+#topbar .logo{
+		color: 					white;
+		font-size:				20px;
+		font-weight:			400;
+		font-style: 			normal;
+		display:				inline-table;
+}
+a:link,a:visited {
+		color:					#ff641e;
+		text-decoration:		none;
+		outline: 				none;
+}
+a.cta{
+		background-color: 		#f97f3a;
+		display:				inline-block;
+		margin-top: 			10px;
+		margin-right: 			10px;
+		padding:				5px 10px 5px 10px;
+		color:					#fff;
+		text-decoration:		none;
+		font-weight:			bold;
+		-moz-border-radius:		2px; 
+	   -webkit-border-radius:	2px; 
+	   border-radius:			2px;
+	   background: -webkit-gradient(linear, left top, left bottom, from(#ffa776), to(#ff641e));
+		background: -moz-linear-gradient(top,  #ffa776,  #ff641e);
+		cursor:					pointer;
+}
+a img{
+		border: 				none;
+}
+p{
+		margin-top: 			0px;
+}
+.quiet{
+		color:					#999999;
+		font-size: 				12px;
+}
+/* STRUCTURE---------------------------------------------------------------------- */
+body {
+		background-color:		#edf1ec;
+		font-family:			"Lucida Grande","Tahoma","Helvetica",sans-serif;
+		font-size:				14px;
+		line-height:			22px;
+		color:					#333333;
+}
+.w960{
+		width:					940px;
+		padding:				0px 10px 10px 10px;
+		text-align:				left;
+		margin: 				0 auto;
+		margin-bottom:	 		70px;
+}
+#topbar{
+		background-color: 		#2f302f;
+		height: 				40px;
+		width: 					100%;
+		padding-top: 			20px;
+}
+.col4{
+		width:					300px;
+		float:					left;
+		margin-bottom: 			0px;		
+}
+.col5{
+		width:					380px;
+		float:					left;
+		margin-bottom: 			0px;		
+}
+.col8{
+		width:					620px;
+		float:					left;
+}
+.col12{
+		width: 					100%;
+}
+.col6{
+		float:					left;
+		width: 					460px;
+}
+.gutter{
+		width:					20px;
+		height: 				100px;
+		float: 					left;
+}
+
+/* UTILITY---------------------------------------------------------------------- */
+hr{
+		color:					#ffffff;
+		background-color: 		#ffffff;
+		border: 				1px dotted #cccccc;
+		border-style: 			none none dotted;
+}
+.left{
+		float:					left;
+}
+.right{
+		float:					right;
+}
+.clear{
+		clear:					both;
+}
+img.stroke{
+		border: 				1px solid #eee;
+}
