@@ -2,7 +2,7 @@
 	<div class="col6">
 		<%= image_tag "step1.png", :class=>"left"%>
 		<div id="upload_zone">
-			<%= s.label "Upload your zip file"%><br>
+			<%= s.label "Upload a zipped folder of your website:"%><br>
 			<%= file_field_tag 'zip' %>
 		</div>
 	</div>
@@ -15,6 +15,6 @@
 		</div>
 		<br class="clear"><br>
 		<%= image_tag("step3.png")%>
-		<%= s.submit("Create website")%>
+		<%= s.submit("Make your website")%>
 	</div>
 <% end %>

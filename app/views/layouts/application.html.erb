@@ -7,7 +7,17 @@
   <%= csrf_meta_tag %>
 </head>
 <body>
-	
+	<div id="topbar">
+		<div class="w960">
+			<span class="logo left">coral<span class="orange">rift</span></span><a href="#" class="right">Login</a>
+			<% if current_user %>
+				<%= link_to "Logout", "users/sign_out", :class => "right"%>
+				<%= link_to current_user.email, "/admin", :class => "right"%>
+			<% else %>
+				<a href="/users/sign_in" class="right">Login</a>
+			<% end %>
+		</div>
+	</div>
 	<% flash.each do |name, msg| %>
 		<%= content_tag :div, msg, :id => "flash_#{name}"%>
 	<% end %>

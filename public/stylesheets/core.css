@@ -113,10 +113,10 @@ body {
 
 /* UTILITY---------------------------------------------------------------------- */
 hr{
-		color:					#ffffff;
-		background-color: 		#ffffff;
-		border: 				1px dotted #cccccc;
-		border-style: 			none none dotted;
+		color:					#ddd;
+		background-color: 		#ddd;
+		border: 				0px;
+		height: 				1px;
 }
 .left{
 		float:					left;
