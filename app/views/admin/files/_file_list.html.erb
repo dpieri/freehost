@@ -2,6 +2,9 @@
 	<img src="/images/smalldrop.jpg">
 	<p>Drop a new zipped file here to replace all files, or drop individual file at corresponding space to replace a specific file.</p>
 </li>
+<% if @parent%>
+	<li><%= link_to "Back Up", "#", :path => @parent_path%></li>
+<% end %>
 <% files.each do |f|%>
 	<% if f[0] %> <!-- It's a directory -->
 		<li><%= link_to f[1], "/admin/files/?path=#{f[2]}"%> </li>
