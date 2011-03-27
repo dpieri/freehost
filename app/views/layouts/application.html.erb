@@ -9,7 +9,7 @@
 <body>
 	<div id="topbar">
 		<div class="w960">
-			<span class="logo left">coral<span class="orange">rift</span></span><a href="#" class="right">Login</a>
+			<a href="/"><span class="logo left">coral<span class="orange">rift</span></span></a><a href="#" class="right">Login</a>
 			<% if current_user %>
 				<%= link_to "Logout", "users/sign_out", :class => "right"%>
 				<%= link_to current_user.email, "/admin", :class => "right"%>
