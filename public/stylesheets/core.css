@@ -1,7 +1,4 @@
 /* TYPOGRAPHY---------------------------------------------------------------------- */
-span.orange{
-		color:					#ff641e;
-}
 h1{
 		font-family:			"ratio-1","ratio-2",sans-serif;
 		line-height: 			48px;
@@ -65,7 +62,9 @@ p{
 }
 .white{
 		color:					white;
-		font-size: 				12px;
+}
+.orange{
+		color:					#ff641e;
 }
 .maintitle{
 		position: 				relative;
@@ -73,6 +72,42 @@ p{
 		letter-spacing: 		0.2em;
 		color:					#ff641e;
 		top:					74px;
+}
+/* FORMS---------------------------------------------------------------------- */
+input{
+		font-size:				14px;
+}
+input[type=text]{
+		-moz-border-radius: 	2px; 
+		-webkit-border-radius: 	2px; 
+		border-radius: 			2px;
+		border:					1px solid #DDD;
+		height:					24px;
+		padding:				3px 6px 3px 6px;
+}
+::-webkit-input-placeholder {
+		color:					#DDD;
+		padding: 				6px;
+}
+input:-moz-placeholder {
+		color:					#DDD;
+    	margin-left:			6px;
+}
+input[type=submit]{
+		background-color: 		#DDD;
+		display:				inline-block;
+		margin-left: 			5px;
+		padding:				5px 10px 6px 10px;
+		color:					#000;
+		font-weight:			bold;
+		text-decoration:		none;
+		-moz-border-radius:		2px; 
+	   	-webkit-border-radius:	2px; 
+	   	border-radius:			2px;
+		border:					1px solid #CCC;
+	   	background:				-webkit-gradient(linear, left top, left bottom, from(#FFF), to(#EEE));
+		background: 			-moz-linear-gradient(top,  #FFF,  #EEE);
+		cursor:					pointer;
 }
 /* STRUCTURE---------------------------------------------------------------------- */
 body {
