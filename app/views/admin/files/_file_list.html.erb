@@ -3,7 +3,7 @@
 	<p>Drop a new zipped file here to replace all files, or drop individual file at corresponding space to replace a specific file.</p>
 </li>
 <% if @parent && @parent != @parent_path%>
-	<li><strong><%= @parent %></strong><%= link_to "Back Up", "#", :class=>"folder", :path => "/admin/files/?path=#{@parent_path}"%></li>
+	<li id="head"><strong><%= @parent %></strong><%= link_to "back", "#", :class=>"folder right", :path => "/admin/files/?path=#{@parent_path}"%></li>
 <% end %>
 <% files.each do |f|%>
 	<% if f[0] %> <!-- It's a directory -->

@@ -24,7 +24,7 @@ class SubdomainsController < ApplicationController
     sub.is_confirmed = false
     sub.key = "monkey"
     uploaded_io = params[:zip]
-    directory = "/www/freehost/assets/user_#{sub.name}"
+    directory = "/home/coralrift/assets/user_#{sub.name}"
     Dir.mkdir directory unless File.directory?(directory)
     name = uploaded_io.original_filename
     path = File.join(directory, name)

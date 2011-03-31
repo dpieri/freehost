@@ -10,7 +10,7 @@ FreeHost::Application.routes.draw do
   resources :users
   resources :subdomains
   
-  match '/' => "subdomains#show", :constraints => {:subdomain => /.+/}
+  # match '/' => "subdomains#show", :constraints => {:subdomain => /.+/}
   root :to => "home#show"
   
   

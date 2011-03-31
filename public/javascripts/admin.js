@@ -7,7 +7,9 @@ function addListeners(){
 	$('li a.folder').click(function(){
 		var loadUrl = $(this).attr('path');
 		$('ul#file_list').load(loadUrl, function(){
+			$('#leftbox1').css('height', 'auto');
 			fixHeights();
+			addListeners();
 		});
 		
 	});
@@ -21,5 +23,6 @@ function fixHeights(){
 		$('#leftbox').height( $('#leftbox1').height() );
 	}
 	$("#file_list li:last").addClass("last");
-	addListeners();  //do this in case it is not an initial load
+	//addListeners();  //do this in case it is not an initial load
+	// fixHeights();
 }

@@ -5,9 +5,9 @@ class ApplicationController < ActionController::Base
   
   
   def ensure_domain
-    if request.env['HTTP_HOST'] == 'www.retrographer.com' || request.env['HTTP_HOST'] == 'http://retrographer.com' || request.env['HTTP_HOST'] == 'http://www.retrographer.com' || request.env['HTTP_HOST'] == 'retrographer.com' && Rails.env.production?
+    if request.env['HTTP_HOST'] == 'www.coralrift.com' || request.env['HTTP_HOST'] == 'http://coralrift.com' || request.env['HTTP_HOST'] == 'http://www.coralrift.com' || request.env['HTTP_HOST'] == 'coralrift.com' && Rails.env.production?
       # puts "redirecting because of #{request.env['HTTP_HOST']}, #{request.user_agent} "
-      redirect_to "http://retrographer.org", :status => 301
+      redirect_to "http://coralrift.com", :status => 301
       flash[:error] = "please don't use www"
     end  
   end

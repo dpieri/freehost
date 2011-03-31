@@ -1,24 +1,36 @@
 /* STRUCTURE---------------------------------------------------------------------- */
+
+strong{
+	font-weight: bold;
+}
+
+#leftboxes_container{
+/*	position: relative;*/
+	margin: 100px 0 0 0;
+	width: 465px;
+	float: left;
+	overflow: auto;
+	background: white;
+}
 #leftbox{
 	width:					220px;
+	height: 100%;
 	float:					left;	
+	position: relative;
 	background-color: 		white;
-	position: 				relative;
-	top:					100px;
 	-moz-box-shadow: 		2px 0px 5px #ccc;
 	-webkit-box-shadow: 	2px 0px 5px #ccc;
 	box-shadow: 			2px 0px 5px #ccc;
-	z-index: 				5;
+	z-index: 				50;
 }
 #leftbox1{
 	width:					240px;;
 	float:					left;	
 	background-color: 		white;
-	position: 				relative;
-	top:					100px;
+	position: relative;
 	-moz-box-shadow: 		2px 0px 5px #ccc;
 	-webkit-box-shadow: 	2px 0px 5px #ccc;
-	box-shadow: 			2px 0px 5px #ccc;
+/*	box-shadow: 			2px 0px 5px #ccc;*/
 }
 #rightbox{
 	width:					460px;
@@ -65,6 +77,10 @@
 	border-bottom: 			1px solid #ccc;
 }
 
+#leftbox ul #head{
+	background-color: red;
+}
+
 #leftbox ul a{
 	display: 				block;
 }
@@ -93,6 +109,7 @@ input::-webkit-input-placeholder {
 }
 
 #leftbox1 ul li{
+	width: 200px;
 	margin: 				0px 20px 0px 20px;
 	padding:				10px 0px 10px 0;
 	font-size: 				12px;
