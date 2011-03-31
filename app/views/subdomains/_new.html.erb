@@ -1,22 +1,16 @@
-<%= form_for @subdomain, :html => {:multipart => true} do |s|%>
-	<div class="col6">
-		<%= image_tag "step1.png", :class=>"bullet left"%>
-		<div id="upload_zone">
-			<%= s.label "Upload a zipped folder of your website:"%><br>
-			<%= file_field_tag 'zip' %>
-		</div>
+<%= form_for @subdomain, :html => {:multipart => true} do |s|%>	
+	<div class="step orange">
+		<%= s.label "Upload a zipped folder of your website to begin"%><br><br>
+		<%= file_field_tag 'zip' %>
 	</div>
-	<div class="gutter"></div>
-	<div class="col6">
-		<%= image_tag "step2.png", :class=>"bullet left"%>
-		<div class="left">Claim a subdomain:<br>
-			<%= s.text_field :name, :class => 'subdomain', :placeholder=>"Your name", :value => "" %>
-			<%= s.label " .coralrift.com", :id=>"logotype"%>
-		</div>
-		<br class="clear"><br>
-		<%= image_tag "step3.png", :class=>"bullet left"%>
-		<div class="left">
-			<%= s.submit("Make your website")%>
-		</div>
+	<div class="step_arrow"></div>
+	<div class="step orange">Claim a subdomain<br><br>
+		<%= s.text_field :name, :class => 'subdomain', :placeholder=>"Your name", :value => "" %>
+		<%= s.label " .coralrift.com", :id=>"logotype"%>
+	</div>
+	<div class="step_arrow"></div>
+	<div class="step orange">
+		Click to preview your website<br><br>
+		<%= s.submit("Done")%>
 	</div>
 <% end %>

@@ -3,15 +3,6 @@
 strong{
 	font-weight: bold;
 }
-
-#leftboxes_container{
-/*	position: relative;*/
-	margin: 100px 0 0 0;
-	width: 465px;
-	float: left;
-	overflow: auto;
-	background: white;
-}
 #leftbox{
 	width:					220px;
 	height: 100%;
