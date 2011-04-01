@@ -14,7 +14,7 @@ on your right or <%= link_to "login", "/users/sign_in"%> to claim it permanently
 </div>
 
 <div id="rightbox">
-	Register an account to keep this subdomain and manage your websites. Already a member? <%= link_to "login", "/users/sign_in"%><br><br>
+	Register an account to keep this subdomain and manage your websites. Already a member? <%= link_to "Login", "/users/sign_in"%><br><br>
 	<%= form_for(@user, :as => @user_resource_name, :url => registration_path(@user_resource_name)) do |f| %>
 	  <%= f.label :email, 'Email address'%>
 	  <%= f.email_field :email %><br><br>

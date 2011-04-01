@@ -1,4 +1,10 @@
 /* TYPOGRAPHY---------------------------------------------------------------------- */
+body{
+		font-family:			"obliqua-1","obliqua-2","Lucida Grande","Tahoma","Helvetica",sans-serif;
+		font-size:				14px;
+		line-height:			22px;
+		color:					#333333;
+}
 h1{
 		font-family:			"ratio-1","ratio-2",sans-serif;
 		line-height: 			48px;
@@ -113,10 +119,6 @@ input[type=submit]{
 /* STRUCTURE---------------------------------------------------------------------- */
 body {
 		background-color:		#edf1ec;
-		font-family:			"Lucida Grande","Tahoma","Helvetica",sans-serif;
-		font-size:				14px;
-		line-height:			22px;
-		color:					#333333;
 }
 .w960{
 		width:					940px;

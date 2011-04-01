@@ -39,7 +39,7 @@ class SubdomainsController < ApplicationController
       redirect_to "/welcome"
     else 
       flash[:error] = "Oops! Something wen't wrong. Please try again"
-      redirect_to root_path
+      redirect_to "/admin"
     end
   end
   
