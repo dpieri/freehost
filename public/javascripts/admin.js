@@ -1,5 +1,5 @@
 $(document).ready(function() {
-	fixHeights();
+	// fixHeights();
 	addListeners();
 });
 
@@ -8,21 +8,26 @@ function addListeners(){
 		var loadUrl = $(this).attr('path');
 		$('ul#file_list').load(loadUrl, function(){
 			$('#leftbox1').css('height', 'auto');
-			fixHeights();
+			// fixHeights();
 			addListeners();
+			setHeights();
 		});
 		
 	});
 }
 function fixHeights(){
-	var leftbox_height=$('#leftbox').height();
-	var leftbox1_height=$('#leftbox1').height();
-	if(leftbox_height>leftbox1_height){
-		$('#leftbox1').height( $('#leftbox').height() );
-	}else{
-		$('#leftbox').height( $('#leftbox1').height() );
-	}
-	$("#file_list li:last").addClass("last");
+	// var leftbox_height=$('#leftbox').height();
+	// var leftbox1_height=$('#leftbox1').height();
+	// if(leftbox_height>leftbox1_height){
+	// 	$('#leftbox1').height( $('#leftbox').height() );
+	// }else{
+	// 	$('#leftbox').height( $('#leftbox1').height() );
+	// }
+	// $("#file_list li:last").addClass("last");
 	//addListeners();  //do this in case it is not an initial load
 	// fixHeights();
+}
+
+function setHeights(){
+	// $('#leftbox').css('height', '100%');
 }
