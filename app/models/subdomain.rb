@@ -8,18 +8,21 @@ class Subdomain < ActiveRecord::Base
   def self.unzip(filename, dir)
     command = "unzip -u -d #{dir} #{filename}"
     success = system(command)
+    # File.delete(filename)
     
     success && $?.exitstatus == 0
   end
   
   def self.move_up(dir, name)
-    zip_dir = "#{dir}/#{name.sub('.zip', '')}"
-    if File.directory?(zip_dir)
-      puts "directory"
-      command = "mv #{zip_dir}/* #{dir}"
-      system(command)
-      command = "rm -rf #{zip_dir}"
-      system(command)
+    File.delete("#{dir}/#{name}")
+    Dir.foreach(dir) do |e|
+      if File.directory?("#{dir}/#{e}")
+        next if e == '.' || e == '..' || e == "__MACOSX"
+        command = "mv #{dir}/#{e}/* #{dir}"
+        system(command)
+        #remove the zip parent directory this does not error gracefully
+        Dir.delete("#{dir}/#{e}")
+      end
     end
   end
 end

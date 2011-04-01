@@ -1,14 +1,19 @@
-<li>
-	<img src="/images/smalldrop.jpg">
-	<p>Drop a new zipped file here to replace all files, or drop individual file at corresponding space to replace a specific file.</p>
-</li>
-<% if @parent && @parent != @parent_path%>
-	<li id="head"><strong><%= @parent %></strong><%= link_to "back", "#", :class=>"folder right", :path => "/admin/files/?path=#{@parent_path}"%></li>
+
+	<li>
+		<img src="/images/smalldrop.jpg">
+		<p>Drop a new zipped file here to replace all files, or drop individual file at corresponding space to replace a specific file.</p>
+	</li>
+
+<% if @this_dir && @this_dir != @parent_path%>
+	<li id="head"><strong><%= @this_dir %></strong><%= link_to "back", "#", :class=>"folder right", :subdomain => @subdomain.name, :path => @parent_path %></li>
 <% end %>
 <% files.each do |f|%>
 	<% if f[0] %> <!-- It's a directory -->
-		<li><%= link_to f[1], "#", :class=>"folder", :path=>"/admin/files/?path=#{f[2]}"%> </li>
+		<li><%= link_to f[1], "#", :class=>"folder", :path=> f[2], :subdomain => @subdomain.name %> </li>
 	<% else %>
-		<li><%= f[1] %> </li>
+		<li>
+			<%= truncate(f[1])%>
+			<%= link_to "remove", "/admin/delete_file?subdomain=#{@subdomain.name}&path=#{f[2]}", :class => 'remove', :remote => true,%>
+		</li>
 	<% end %>
 <% end %>

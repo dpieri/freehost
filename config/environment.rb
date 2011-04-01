@@ -3,5 +3,3 @@ require File.expand_path('../application', __FILE__)
 
 # Initialize the rails application
 FreeHost::Application.initialize!
-
-ASSETS_ROOT = "/home/coralrift/assets"

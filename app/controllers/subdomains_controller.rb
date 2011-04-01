@@ -7,6 +7,39 @@ class SubdomainsController < ApplicationController
   end
   
   def create
+    if params[:subdomain][:name].match(/\s/)
+      flash[:error] = "Please choose a subdomain name without spaces"
+      redirect_to root_path
+      return
+    end
+    
+    if params[:no_zip] == "true"
+      #DRY!
+      if Subdomain.exists?(:name => params[:subdomain][:name])
+        flash[:error] = "Sorry, somebody already has that subdomain"
+        redirect_to "/admin"
+        return
+      end
+      
+      sub = Subdomain.new
+      sub.name = params[:subdomain][:name]
+      sub.is_confirmed = true
+      sub.user = current_user
+      sub.key = "monkey"
+      
+      directory = "#{ASSETS_ROOT}/user_#{sub.name}"
+      Dir.mkdir directory unless File.directory?(directory)
+      
+      if sub.save 
+        flash[:notice] = "Subdomain Claimed"
+        redirect_to "/admin"
+      else 
+        flash[:error] = "Oops! Something wen't wrong. Please try again"
+        redirect_to "/admin"
+      end
+      return
+    end
+    
     if Subdomain.exists?(:name => params[:subdomain][:name])
       flash[:error] = "Sorry, somebody already has that subdomain"
       redirect_to root_path
@@ -24,9 +57,9 @@ class SubdomainsController < ApplicationController
     sub.is_confirmed = false
     sub.key = "monkey"
     uploaded_io = params[:zip]
-    directory = "/home/coralrift/assets/user_#{sub.name}"
+    directory = "#{ASSETS_ROOT}/user_#{sub.name}"
     Dir.mkdir directory unless File.directory?(directory)
-    name = uploaded_io.original_filename
+    name = uploaded_io.original_filename.gsub(/ /,'')
     path = File.join(directory, name)
     File.open(path, 'wb') do |file|
       file.write(uploaded_io.read)
@@ -39,7 +72,7 @@ class SubdomainsController < ApplicationController
       redirect_to "/welcome"
     else 
       flash[:error] = "Oops! Something wen't wrong. Please try again"
-      redirect_to "/admin"
+      redirect_to root_path
     end
   end
   

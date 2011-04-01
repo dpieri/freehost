@@ -7,42 +7,41 @@ strong{
 #leftboxes_container{
 	margin: 100px 0 0 0;
 	width: 465px;
-/*	float: left;*/
-/*	height: auto;*/
+	float: left;
 	position: relative;
 }
 
-#leftbox{
-	position: absolute;
-	left: 0;
-	top: 0;
+
+
+#leftboxes_container .col_left{
 	width:					220px;
-	height: 100%;
 	background-color: 		white;
 	-moz-box-shadow: 		2px 0px 5px #ccc;
 	-webkit-box-shadow: 	2px 0px 5px #ccc;
 	box-shadow: 			2px 0px 5px #ccc;
+	z-index: 400;
+	position: relative;
 }
-#leftbox1{
+#leftboxes_container .col_right{
+	width:					240px;
 	position: absolute;
+	z-index: 300;
 	top: 0;
 	left: 220px;
-	width:					240px;;
-	background-color: 		white;
-	height: 100%;
-/*	height: 100%;*/
+	background: #fff;
 	-moz-box-shadow: 		2px 0px 5px #ccc;
 	-webkit-box-shadow: 	2px 0px 5px #ccc;
-/*	box-shadow: 			2px 0px 5px #ccc;*/
+	box-shadow: 			2px 0px 5px #ccc;
 }
+
 #rightbox{
 	width:					460px;
 	height:					300px;
-	float:					left;
-	margin-left:			20px;	
+	float:					right;
+	margin:						100px 0 0 0 ;
 	background-color: 		white;
-	position: 				relative;
-	top:					100px;
+/*	position: 				relative;*/
+/*	top:					100px;*/
 	-moz-box-shadow: 		0px 0px 8px #ccc;
 	-webkit-box-shadow: 	0px 0px 8px #ccc;
 	box-shadow: 			0px 0px 8px #ccc;
@@ -50,7 +49,7 @@ strong{
 .headerbar{
 	width:					200px;
 	height:					28px;
-	float:					left;	
+/*	float:					left;	*/
 	background-color: 		#ff641e;
 	color:					white;
 	padding-left: 			20px;
@@ -65,24 +64,24 @@ strong{
 	padding-top: 			35px;	
 }
 
-#leftbox ul li{
+#leftboxes_container .col_left ul li{
 	margin: 				0px 20px 0px 20px;
 	padding-bottom:			20px;
 	padding-top:			20px;
 	font-size: 				18px;
 }
-#leftbox ul a li{
+#leftboxes_container .col_left ul a li{
 	border-bottom: 			1px solid #ccc;
 }
 
-#leftbox ul #head{
+#leftboxes_container .col_left ul #head{
 	background-color: red;
 }
 
-#leftbox ul a{
+#leftboxes_container .col_left ul a{
 	display: 				block;
 }
-#leftbox ul a:hover{
+#leftboxes_container .col_left ul a:hover{
 	background-color: 		#fee4d5;
 }
 
@@ -102,22 +101,22 @@ input::-webkit-input-placeholder {
   color: 					#ffd4c0;
 }
 
-#leftbox1 ul{
+#leftboxes_container .col_right ul{
 	float: 					left;
 }
 
-#leftbox1 ul li{
+#leftboxes_container .col_right ul li{
 	width: 200px;
 	margin: 				0px 20px 0px 20px;
 	padding:				10px 0px 10px 0;
 	font-size: 				12px;
 	border-bottom: 			1px solid #ccc;
 }
-#leftbox1 ul .last{
+#leftboxes_container .col_right1 ul .last{
 	border-bottom: 			none;
 }
 
-#leftbox1 ul li:first-child{
+#leftboxes_container .col_right ul li:first-child{
 	margin: 				0px;
 	width:					220px;
 	padding-bottom:			20px;
@@ -128,11 +127,15 @@ input::-webkit-input-placeholder {
 	float: 					left;
 }
 
-#leftbox1 ul li img{
+#leftboxes_container .col_right ul li:last-child{
+	border: none;
+}
+
+#leftboxes_container .col_right ul li img{
 	float: 					left;
 	width:					60px;
 }
-#leftbox1 ul li p{
+#leftboxes_container .col_right ul li p{
 	float: 					left;
 	width:					133px;
 	font-size: 				11px;
@@ -144,4 +147,19 @@ input::-webkit-input-placeholder {
 #rightbox img{
 	padding-left:			10px;
 	padding-top:			10px;
+}
+
+
+
+/* FILE UPLOAD AND REMOVE----------------------------------------------- */
+#leftboxes_container .col_right ul li:hover .remove{  /*CSS DAWG!!*/
+	visibility: visible;
+}
+.remove{
+	text-indent: -9000px;
+	float: right;
+	visibility: hidden;
+	width: 20px;
+	height: 20px;
+	background: red;
 }
