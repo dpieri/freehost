@@ -12,7 +12,7 @@ class AdminController < ApplicationController
     
     @new_subdomain = Subdomain.new
     directory = "#{ASSETS_ROOT}/user_#{@subdomain.name}"
-    @files = index_directory(directory, @subdomain.name, "")
+    @files = index_directory(@subdomain.name, "")
   end
   
   def directory
@@ -21,12 +21,12 @@ class AdminController < ApplicationController
     #redirect_to root_path unless check_ownership(subdomain) #redundant maybe?
     @this_dir = params[:path].split('/').last
     @parent_path = params[:path].sub("/#{@this_dir}", '')
-    directory = "#{ASSETS_ROOT}#{params[:path]}"
-    @files = index_directory(directory, @subdomain.name, params[:path])
+    # directory = "#{ASSETS_ROOT}#{params[:path]}"
+    @files = index_directory(@subdomain.name, params[:path])
     render :partial => 'admin/files/file_list',:locals => {:files => @files}
   end
   
-  def index_directory(dir, subdomain, rel_dir)
+  def index_directory(subdomain, rel_dir)
     files = []
     absolute_path = "#{ASSETS_ROOT}/user_#{subdomain}/#{rel_dir}"
     Dir.foreach(absolute_path) do |e|
@@ -39,18 +39,19 @@ class AdminController < ApplicationController
   end
   
   def delete_file
-    subdomain = current_user.subdomains.where(:name => params[:subdomain]).first
-    redirect_to root_path and return unless subdomain
+    @subdomain = current_user.subdomains.where(:name => params[:subdomain]).first
+    redirect_to root_path and return unless @subdomain
     #delete the file
-    file = "#{ASSETS_ROOT}/user_#{subdomain.name}#{params[:path]}"
+    file = "#{ASSETS_ROOT}/user_#{@subdomain.name}#{params[:path]}"
     File.delete(file) if File.exists?(file)
     
     #and re-index for js returned
     @the_file = params[:path].split('/').last
-    @this_dir = params[:path].sub("/#{@the_file}", '')
-    directory = "#{ASSETS_ROOT}#{@this_dir}"
-    @files = index_directory(directory, @subdomain.name, params[:path])
-    render :partial => 'admin/files/file_list',:locals => {:files => @files}
+    this_dir_path = params[:path].sub("/#{@the_file}", '')
+    @this_dir = this_dir_path.split('/').last
+    @parent_path = this_dir_path.sub("/#{@this_dir}", '')
+    @files = index_directory(@subdomain.name, this_dir_path)
+    # render :partial => 'admin/files/file_list',:locals => {:files => @files}
   end
   
   def check_ownership(subdomain)

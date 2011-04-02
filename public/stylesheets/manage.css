@@ -159,7 +159,8 @@ input::-webkit-input-placeholder {
 	text-indent: -9000px;
 	float: right;
 	visibility: hidden;
-	width: 20px;
-	height: 20px;
-	background: red;
+	width: 10px;
+	height: 10px;
+	margin: 6px 5px 0 0;
+	background: url('/images/x_small.png');
 }

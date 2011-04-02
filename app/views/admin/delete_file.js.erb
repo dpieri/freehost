@@ -1,0 +1,2 @@
+$('ul#file_list').html("<%= escape_javascript(render :partial => 'admin/files/file_list',:locals => {:files => @files}) %>");
+addListeners();
