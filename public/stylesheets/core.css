@@ -1,28 +1,25 @@
 /* TYPOGRAPHY---------------------------------------------------------------------- */
 body{
-		font-family:			"obliqua-1","obliqua-2","Lucida Grande","Tahoma","Helvetica",sans-serif;
+		font-family:			"Lucida Grande","Tahoma","Helvetica",sans-serif;
 		font-size:				14px;
 		line-height:			22px;
 		color:					#333333;
 }
 h1{
-		font-family:			"ratio-1","ratio-2",sans-serif;
 		line-height: 			48px;
-		font-size:				42px;
+		font-size:				40px;
 		font-weight:			400;
 		font-style: 			normal;
 		margin-top: 			10px;
 		margin-bottom: 			20px;
 }
 h2{
-		font-family: 			"ratio-1","ratio-2",sans-serif;
 		font-size: 				20px;
 		font-weight: 			400;
 		font-style: 			normal;
 		margin-bottom: 			8px;
 }
 h3{
-		font-family:			"Lucida Grande","Tahoma","Helvetica",sans-serif;
 		font-size:				12px;
 		font-weight: 			bold;
 		margin-top: 			10px;

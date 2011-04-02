@@ -6,32 +6,25 @@ strong{
 
 #leftboxes_container{
 	margin: 100px 0 0 0;
-	width: 465px;
+	width: 460px;
 	float: left;
+	display: inline-table;
 	position: relative;
+	background:		url('/images/manage_bg.jpg');
+		-moz-box-shadow: 		2px 0px 3px #ccc;
+		-webkit-box-shadow: 	2px 0px 3px #ccc;
+		box-shadow: 			2px 0px 3px #ccc;
 }
 
 
 
 #leftboxes_container .col_left{
 	width:					220px;
-	background-color: 		white;
-	-moz-box-shadow: 		2px 0px 5px #ccc;
-	-webkit-box-shadow: 	2px 0px 5px #ccc;
-	box-shadow: 			2px 0px 5px #ccc;
-	z-index: 400;
-	position: relative;
+	float:					left;
 }
 #leftboxes_container .col_right{
 	width:					240px;
-	position: absolute;
-	z-index: 300;
-	top: 0;
-	left: 220px;
-	background: #fff;
-	-moz-box-shadow: 		2px 0px 5px #ccc;
-	-webkit-box-shadow: 	2px 0px 5px #ccc;
-	box-shadow: 			2px 0px 5px #ccc;
+	float:					left;
 }
 
 #rightbox{
