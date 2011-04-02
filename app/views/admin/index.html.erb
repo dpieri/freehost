@@ -7,7 +7,7 @@
 	<div id="leftboxes_container">
 	
 		<div class="col_left">
-			<!-- <div class="headerbar">Domains</div> -->
+			<div class="headerbar">Domains</div>
 			<ul>
 				<% @subdomains.each do |s|%>
 					<%= link_to raw("<li>/#{s.name}</li>") , "/admin/#{s.name}"%>
@@ -22,7 +22,7 @@
 		</div>
 	
 		<div class="col_right">
-			<!-- <div class="headerbar headerbar2">Files</div>	 -->
+			<div class="headerbar headerbar2">Files</div>	
 			<ul id="file_list">
 				<%= render :partial => 'admin/files/file_list', :locals => {:files => @files}%>
 			</ul>
