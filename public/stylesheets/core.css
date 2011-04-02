@@ -110,7 +110,7 @@ input[type=submit]{
 		margin-left: 			0px;
 		padding:				5px 10px 6px 10px;
 		color:					#000;
-		font-weight:			bold;
+/*		font-weight:			bold;*/
 		text-decoration:		none;
 		-moz-border-radius:		2px; 
 	   	-webkit-border-radius:	2px; 
@@ -119,6 +119,10 @@ input[type=submit]{
 	   	background:				-webkit-gradient(linear, left top, left bottom, from(#FFF), to(#EEE));
 		background: 			-moz-linear-gradient(top,  #FFF,  #EEE);
 		cursor:					pointer;
+}
+input[type=submit]:hover{
+	background:-webkit-gradient(linear, left top, left bottom, from(#F9F9F9), to(#E9E9E9));
+	background: -moz-linear-gradient(top,  #F9F9F9,  #E9E9E9);
 }
 /* STRUCTURE---------------------------------------------------------------------- */
 body {
