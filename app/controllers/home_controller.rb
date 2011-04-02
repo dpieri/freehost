@@ -6,4 +6,7 @@ class HomeController < ApplicationController
     @subdomain = Subdomain.new
   end
 
+  def about
+  end
+
 end

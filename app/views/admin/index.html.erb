@@ -1,4 +1,4 @@
-<%= javascript_include_tag "admin"%>
+<%= javascript_include_tag 'admin.js'%>
 <%= stylesheet_link_tag "manage" %>
 <div class="w960">
 	<h2 class="maintitle">MANAGE YOUR SITES</h2>
@@ -27,7 +27,7 @@
 				<%= render :partial => 'admin/files/file_list', :locals => {:files => @files}%>
 			</ul>
 		</div>
-	
+		<div class="clear"></div>
 	</div>
 
 	<div id="rightbox">	

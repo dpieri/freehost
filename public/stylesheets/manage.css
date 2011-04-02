@@ -1,37 +1,27 @@
 /* STRUCTURE---------------------------------------------------------------------- */
 
-strong{
-	font-weight: bold;
-}
-
 #leftboxes_container{
-	margin: 100px 0 0 0;
-	width: 465px;
-	float: left;
-	position: relative;
+	margin:					100px 0 0 0;
+	width:					460px;
+	float:					left;
+	display:				inline-table;
+	position:				relative;
+	background:				url('/images/manage_bg.jpg');
+	-moz-box-shadow: 		2px 0px 3px #ccc;
+	-webkit-box-shadow: 	2px 0px 3px #ccc;
+	box-shadow: 			2px 0px 3px #ccc;
 }
 
 
 
 #leftboxes_container .col_left{
 	width:					220px;
-	background-color: 		white;
-	-moz-box-shadow: 		2px 0px 5px #ccc;
-	-webkit-box-shadow: 	2px 0px 5px #ccc;
-	box-shadow: 			2px 0px 5px #ccc;
-	z-index: 400;
-	position: relative;
+	float:					left;
+/*	z-index: 				200;*/
 }
 #leftboxes_container .col_right{
 	width:					240px;
-	position: absolute;
-	z-index: 300;
-	top: 0;
-	left: 220px;
-	background: #fff;
-	-moz-box-shadow: 		2px 0px 5px #ccc;
-	-webkit-box-shadow: 	2px 0px 5px #ccc;
-	box-shadow: 			2px 0px 5px #ccc;
+	float:					left;
 }
 
 #rightbox{
@@ -40,8 +30,6 @@ strong{
 	float:					right;
 	margin:						100px 0 0 0 ;
 	background-color: 		white;
-/*	position: 				relative;*/
-/*	top:					100px;*/
 	-moz-box-shadow: 		0px 0px 8px #ccc;
 	-webkit-box-shadow: 	0px 0px 8px #ccc;
 	box-shadow: 			0px 0px 8px #ccc;
@@ -49,7 +37,6 @@ strong{
 .headerbar{
 	width:					200px;
 	height:					28px;
-/*	float:					left;	*/
 	background-color: 		#ff641e;
 	color:					white;
 	padding-left: 			20px;
@@ -57,7 +44,8 @@ strong{
 }
 .headerbar2{
 	width:					220px;
-	background-color: 		#fc9961;
+	background-color: 		#ff641e;
+	opacity:				.5;
 }
 
 #leftbox ul{
@@ -106,7 +94,7 @@ input::-webkit-input-placeholder {
 }
 
 #leftboxes_container .col_right ul li{
-	width: 200px;
+	width:					200px;
 	margin: 				0px 20px 0px 20px;
 	padding:				10px 0px 10px 0;
 	font-size: 				12px;
@@ -156,11 +144,11 @@ input::-webkit-input-placeholder {
 	visibility: visible;
 }
 .remove{
-	text-indent: -9000px;
-	float: right;
-	visibility: hidden;
-	width: 10px;
-	height: 10px;
-	margin: 6px 5px 0 0;
-	background: url('/images/x_small.png');
+	text-indent: 			-9000px;
+	float:					right;
+	visibility:				hidden;
+	width:					10px;
+	height:					10px;
+	margin:					6px 5px 0 0;
+	background:				url('/images/x_small.png');
 }
