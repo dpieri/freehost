@@ -1,6 +1,8 @@
+<%= javascript_include_tag 'fileuploader.js' %>
+<%= stylesheet_link_tag 'fileuploader.css' %>
+
 <%= form_for @subdomain, :html => {:multipart => true} do |s|%>	
-	<div class="step orange">
-		Claim a subdomain<br><br>
+	<div class="step orange">Claim a subdomain<br><br>
 		<%= s.text_field :name, :class => 'subdomain', :placeholder=>"Your name", :value => "" %>
 		<%= s.label " .coralrift.com", :id=>"logotype"%>
 	</div>
@@ -10,8 +12,33 @@
 		<%= file_field_tag 'zip' %>
 	</div>
 	<div class="step_arrow"></div>
+		<div id="file_uploader">			
+			<noscript>          
+		        <p>Please enable JavaScript to use file uploader.</p>
+		        <!-- or put a simple form for upload here -->
+		    </noscript>
+		</div>
+	</div>
+	
+	<div class="step_arrow"></div>
+	<%= hidden_field_tag 'temp_file', 'asdf'%>
 	<div class="step orange">
 		Click to preview your website<br><br>
 		<%= s.submit("Done")%>
 	</div>
 <% end %>
+
+<script>
+	var uploader = new qq.FileUploader({
+	  element: document.getElementById('file_uploader'),
+	  action: '/subdomains/uploader',
+	  allowedExtensions: ['zip'],  
+	  debug: false,
+	  params: {
+	    id: 'monkey'
+	  },
+	  onComplete: function(id, filename, responseJSON){
+		$("#temp_file").val(responseJSON.temp_file);
+	  }
+	});
+</script>

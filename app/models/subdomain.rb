@@ -5,23 +5,37 @@ class Subdomain < ActiveRecord::Base
     found = Subdomain.where(:name => requested).first
   end
   
-  def self.unzip(filename, dir)
-    command = "unzip -u -d #{dir} #{filename}"
+  def self.unzip(subdomain, file)
+    directory = "#{ASSETS_ROOT}/user_#{subdomain}"
+    puts "directory is #{directory}"
+    file_path = "#{ASSETS_ROOT}/uploads/#{file}"
+    puts "file path is #{file_path}"
+    Dir.mkdir directory unless File.directory?(directory)
+    #empty directory
+    Dir.foreach(directory) do |f|
+      if f == '.' or f == '..' then next
+      elsif File.directory?(f) then FileUtils.rm_rf(f)
+      else FileUtils.rm( f )
+      end
+    end
+    command = "unzip -u -d #{directory} #{file_path}"
     success = system(command)
-    # File.delete(filename)
+    #delete the zip
+    File.delete(file_path)
     
     success && $?.exitstatus == 0
   end
   
-  def self.move_up(dir, name)
-    File.delete("#{dir}/#{name}")
-    Dir.foreach(dir) do |e|
-      if File.directory?("#{dir}/#{e}")
+  def self.move_up(subdomain)
+    # File.delete("#{dir}/#{name}")
+    directory = "#{ASSETS_ROOT}/user_#{subdomain}"
+    Dir.foreach(directory) do |e|
+      if File.directory?("#{directory}/#{e}")
         next if e == '.' || e == '..' || e == "__MACOSX"
-        command = "mv #{dir}/#{e}/* #{dir}"
+        command = "mv #{directory}/#{e}/* #{directory}"
         system(command)
         #remove the zip parent directory this does not error gracefully
-        Dir.delete("#{dir}/#{e}")
+        Dir.delete("#{directory}/#{e}")
       end
     end
   end

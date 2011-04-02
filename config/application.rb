@@ -8,6 +8,11 @@ Bundler.require(:default, Rails.env) if defined?(Bundler)
 
 module FreeHost
   class Application < Rails::Application
+    
+    #drag and drop file upload
+    require 'rack/raw_upload'
+    config.middleware.use 'Rack::RawUpload', :paths => ['/subdomains/uploader']
+    
     # Settings in config/environments/* take precedence over those specified here.
     # Application configuration should go into files in config/initializers
     # -- all .rb files in that directory are automatically loaded.
