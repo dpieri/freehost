@@ -1,3 +1,10 @@
+GIT
+  remote: git://github.com/newbamboo/rack-raw-upload.git
+  revision: 579da84
+  specs:
+    rack-raw-upload (0.1.1)
+      json
+
 GEM
   remote: http://rubygems.org/
   specs:
@@ -38,6 +45,7 @@ GEM
     erubis (2.6.6)
       abstract (>= 1.0.0)
     i18n (0.5.0)
+    json (1.5.1)
     mail (2.2.15)
       activesupport (>= 2.3.6)
       i18n (>= 0.4.0)
@@ -78,5 +86,6 @@ PLATFORMS
 
 DEPENDENCIES
   devise
+  rack-raw-upload!
   rails (= 3.0.5)
   sqlite3

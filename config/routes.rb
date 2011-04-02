@@ -11,6 +11,7 @@ FreeHost::Application.routes.draw do
 
   resources :users
   resources :subdomains
+  match "/subdomains/uploader" => "subdomains#uploader"
   
   # match '/' => "subdomains#show", :constraints => {:subdomain => /.+/}
   root :to => "home#show"

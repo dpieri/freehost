@@ -46,26 +46,14 @@ class SubdomainsController < ApplicationController
       return
     end
     
-    unless params[:zip]
-      flash[:error] = "Please choose a zip file to upload first"
-      redirect_to root_path
-      return
-    end
-    
     sub = Subdomain.new
     sub.name = params[:subdomain][:name]
     sub.is_confirmed = false
     sub.key = "monkey"
-    uploaded_io = params[:zip]
-    directory = "#{ASSETS_ROOT}/user_#{sub.name}"
-    Dir.mkdir directory unless File.directory?(directory)
-    name = uploaded_io.original_filename.gsub(/ /,'')
-    path = File.join(directory, name)
-    File.open(path, 'wb') do |file|
-      file.write(uploaded_io.read)
-    end
-    Subdomain.unzip(path, directory) ? flash[:notice] = "All good" : flash[:error] = "Error unzipping your file"
-    Subdomain.move_up(directory, name)
+    
+    Subdomain.unzip(sub.name, params[:temp_file]) ? flash[:notice] = "All good" : flash[:error] = "Error unzipping your file"
+    Subdomain.move_up(sub.name)
+    
     if sub.save 
       flash[:notice] = "Website uploaded!"
       session[:subdomain] = "#{sub.name}"
@@ -73,6 +61,25 @@ class SubdomainsController < ApplicationController
     else 
       flash[:error] = "Oops! Something wen't wrong. Please try again"
       redirect_to root_path
+    end
+  end
+  
+  def uploader
+    puts "rile is #{params[:file]} and title is #{params[:qqfile]}"
+    random_string = Time.now.to_i.to_s
+    @temp_file = random_string + params[:qqfile].gsub(/ /,'')
+    upload_zip params[:file], random_string
+    return true
+  end
+  
+  def upload_zip(file, random_string)
+    uploaded_io = file
+    directory = "#{ASSETS_ROOT}/uploads"     #"#{ASSETS_ROOT}/user_#{sub.name}"
+    # Dir.mkdir directory unless File.directory?(directory)
+    name = random_string  + uploaded_io.original_filename.gsub(/ /,'')
+    path = File.join(directory, name)
+    File.open(path, 'wb') do |file|
+      file.write(uploaded_io.read)
     end
   end
   
