@@ -13,7 +13,7 @@
 	<% else %>
 		<li>
 			<%= truncate(f[1])%>
-			<%= link_to "remove", "/admin/delete_file?subdomain=#{@subdomain.name}&path=#{f[2]}", :class => 'remove', :remote => true,%>
+			<%= link_to "remove", "/admin/delete_file?subdomain=#{@subdomain.name}&path=#{f[2]}", :class => 'remove', :remote => true%>
 		</li>
 	<% end %>
 <% end %>
