@@ -28,6 +28,16 @@
 	-webkit-box-shadow: 	2px 0px 5px #ccc;
 	box-shadow: 			2px 0px 5px #ccc;
 }
+#widebox{
+	width:					700px;
+	background-color: 		white;
+	padding:				30px;
+	position: 				relative;
+	top:					100px;
+	-moz-box-shadow: 		2px 0px 5px #ccc;
+	-webkit-box-shadow: 	2px 0px 5px #ccc;
+	box-shadow: 			2px 0px 5px #ccc;
+}
 
 #leftbox img{
 	padding-left:			10px;

@@ -9,6 +9,7 @@ FreeHost::Application.routes.draw do
   match "admin/delete_file" => "admin#delete_file"
   match "/admin/:subdomain" => "admin#index"
   match '/about' => "home#about"
+  match '/faq' => 'home#faq'
 
   resources :users
   resources :subdomains

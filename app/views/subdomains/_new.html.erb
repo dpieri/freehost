@@ -1,12 +1,13 @@
 <%= form_for @subdomain, :html => {:multipart => true} do |s|%>	
 	<div class="step orange">
-		<%= s.label "Upload a zipped folder of your website to begin"%><br><br>
-		<%= file_field_tag 'zip' %>
-	</div>
-	<div class="step_arrow"></div>
-	<div class="step orange">Claim a subdomain<br><br>
+		Claim a subdomain<br><br>
 		<%= s.text_field :name, :class => 'subdomain', :placeholder=>"Your name", :value => "" %>
 		<%= s.label " .coralrift.com", :id=>"logotype"%>
+	</div>
+	<div class="step_arrow"></div>
+	<div class="step orange">
+		<%= s.label "Upload a zipped folder of your website to begin"%><br><br>
+		<%= file_field_tag 'zip' %>
 	</div>
 	<div class="step_arrow"></div>
 	<div class="step orange">
