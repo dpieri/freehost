@@ -5,7 +5,7 @@ gem 'rails', '3.0.5'
 # Bundle edge Rails instead:
 # gem 'rails', :git => 'git://github.com/rails/rails.git'
 
-gem 'rack-raw-upload', :git => 'git://github.com/newbamboo/rack-raw-upload.git'
+gem 'rack-raw-upload'
 
 gem 'sqlite3'
 
