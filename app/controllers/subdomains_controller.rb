@@ -76,7 +76,7 @@ class SubdomainsController < ApplicationController
     subdomain = Subdomain.where(:name => params[:subdomain]).first
     return if subdomain.key != params[:key]
     random_string = Time.now.to_i.to_s
-    @temp_file = random_string + params[:qqfile].gsub(/ /,'')
+    @temp_file = random_string + params[:qqfile].gsub(/ /,'').gsub('%20', '')
     upload_zip params[:file], random_string
     Subdomain.unzip(subdomain.name, @temp_file) ? flash[:notice] = "zip uploaded and unzipped"  : flash[:error] = "Error unzipping your file"
     Subdomain.move_up(subdomain.name)
@@ -86,7 +86,7 @@ class SubdomainsController < ApplicationController
     uploaded_io = file
     directory = "#{ASSETS_ROOT}/uploads"     #"#{ASSETS_ROOT}/user_#{sub.name}"
     # Dir.mkdir directory unless File.directory?(directory)
-    name = random_string  + uploaded_io.original_filename.gsub(/ /,'')
+    name = random_string  + uploaded_io.original_filename.gsub(/ /,'').gsub('%20', '')
     path = File.join(directory, name)
     File.open(path, 'wb') do |file|
       file.write(uploaded_io.read)

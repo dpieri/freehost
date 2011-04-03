@@ -10,7 +10,9 @@
 			<div class="headerbar">Domains</div>
 			<ul>
 				<% @subdomains.each do |s|%>
+					<%= raw("<strong>") if s == @subdomain%>
 					<%= link_to raw("<li>/#{s.name}</li>") , "/admin/#{s.name}"%>
+					<%= raw("</strong>") if s == @subdomain%>
 				<% end %>
 				<li class="last">
 					<%= form_for @new_subdomain do |s|%>
