@@ -8,7 +8,7 @@
 	</div>
 	<div class="step_arrow"></div>
 	<div class="step orange">
-		<%= s.label "Upload a zipped folder of your website to begin"%><br><br>
+		Upload a zipped folder of your website to begin<br>
 		<div id="file_uploader">			
 			<noscript>          
 		        <p>Please enable JavaScript to use file uploader.</p>
@@ -19,8 +19,10 @@
 	
 	<div class="step_arrow"></div>
 	<%= hidden_field_tag 'temp_file', 'asdf'%>
-	<div class="step orange">
-		Click to preview your website<br><br>
+	<div class="step">
+		<span class="orange">Click to preview your website</span><br>
+		<span class="quiet">You'll be able to sign up then.</span>
+		<br>
 		<%= s.submit("Done")%>
 	</div>
 <% end %>
