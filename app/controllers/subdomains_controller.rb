@@ -26,7 +26,7 @@ class SubdomainsController < ApplicationController
       sub.name = params[:subdomain][:name]
       sub.is_confirmed = true
       sub.user = current_user
-      sub.key = "monkey"
+      sub.key = current_user.key
       
       directory = "#{ASSETS_ROOT}/user_#{sub.name}"
       Dir.mkdir directory unless File.directory?(directory)
@@ -50,7 +50,8 @@ class SubdomainsController < ApplicationController
     sub = Subdomain.new
     sub.name = params[:subdomain][:name]
     sub.is_confirmed = false
-    sub.key = "monkey"
+    sub.key = (size = 25; (0..size).inject('') { |r, i| r << rand(93) + 33 })
+    session[:key] = sub.key
     
     Subdomain.unzip(sub.name, params[:temp_file]) ? flash[:notice] = "zip uploaded and unzipped" : flash[:error] = "Error unzipping your file"
     Subdomain.move_up(sub.name)

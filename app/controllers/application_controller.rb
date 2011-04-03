@@ -3,6 +3,9 @@ class ApplicationController < ActionController::Base
   
   #before_filter :ensure_domain
   
+  def after_sign_in_path_for(resource)
+      "/admin"
+  end
   
   def ensure_domain
     if request.env['HTTP_HOST'] == 'www.coralrift.com' || request.env['HTTP_HOST'] == 'http://coralrift.com' || request.env['HTTP_HOST'] == 'http://www.coralrift.com' || request.env['HTTP_HOST'] == 'coralrift.com' && Rails.env.production?

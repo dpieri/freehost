@@ -5,6 +5,7 @@ class SessionsController < Devise::SessionsController
 
   def create
     super
+    session[:logged_key] = current_user.key
     if session[:subdomain]
       subdomain = Subdomain.where(:name => session[:subdomain], :is_confirmed => false).first
       return unless subdomain

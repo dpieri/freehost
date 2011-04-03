@@ -32,10 +32,7 @@
 	  element: document.getElementById('file_uploader'),
 	  action: '/subdomains/uploader',
 	  allowedExtensions: ['zip'],  
-	  debug: true,
-	  params: {
-	    id: 'monkey'
-	  },
+	  debug: false,
 	  onComplete: function(id, filename, responseJSON){
 		$("#temp_file").val(responseJSON.temp_file);
 	  }

@@ -7,7 +7,7 @@ class AdminController < ApplicationController
     @subdomains = @user.subdomains
     if params[:subdomain]
       @subdomain = @user.subdomains.where(:name => params[:subdomain]).first
-      redirect_to "/admin" and return unless @subdomain
+      redirect_to "/admin" and return unless @subdomain && @subdomain.key == session[:logged_key]
     else
       @subdomain = @subdomains.first
     end
@@ -19,7 +19,7 @@ class AdminController < ApplicationController
   
   def directory
     @subdomain = current_user.subdomains.where(:name => params[:subdomain]).first
-    redirect_to root_path and return unless @subdomain
+    redirect_to root_path and return unless @subdomain && @subdomain.key == session[:logged_key]
     #redirect_to root_path unless check_ownership(subdomain) #redundant maybe?
     @this_dir = params[:path].split('/').last
     @parent_path = params[:path].sub("/#{@this_dir}", '')
@@ -42,7 +42,7 @@ class AdminController < ApplicationController
   
   def delete_file
     @subdomain = current_user.subdomains.where(:name => params[:subdomain]).first
-    redirect_to root_path and return unless @subdomain
+    redirect_to root_path and return unless @subdomain  && @subdomain.key == session[:logged_key]
     #delete the file
     file = "#{ASSETS_ROOT}/user_#{@subdomain.name}#{params[:path]}"
     File.delete(file) if File.exists?(file)
