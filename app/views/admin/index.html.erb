@@ -25,9 +25,7 @@
 	
 		<div class="col_right">
 			<div class="headerbar headerbar2">Files</div>	
-			<ul id="file_list">
-				<%= render :partial => 'admin/files/file_list', :locals => {:files => @files}%>
-			</ul>
+			<%= render :partial => 'admin/files/file_list', :locals => {:files => @files}%>
 		</div>
 		<div class="clear"></div>
 	</div>
@@ -37,22 +35,5 @@
 		<a href="" class="right" style="margin-top:20px";>Preview</a>
 	</div>
 </div>
-
-<script>
-	var uploader = new qq.FileUploader({
-	  element: document.getElementById('file_uploader'),
-	  action: '/subdomains/reupload',
-	  allowedExtensions: ['zip'],  
-	  debug: false,
-	  params: {
-	    subdomain: "<%=@subdomain.name%>",
-		key: "<%= @subdomain.key %>",
-		authenticity_token: $('meta[name=csrf-token]').attr('content')
-	  },
-	  onComplete: function(id, filename, responseJSON){
-		window.location.reload();
-	  }
-	});
-</script>
 
 

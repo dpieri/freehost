@@ -5,12 +5,12 @@
     width: 120px; padding: 4px 0; text-align:center; 
 	margin: 0 auto;
 	margin-top: 15px;
-    background:# DDD;
+  background:# DDD;
 	border: 1px solid #CCC;
 	color: #000;
 	-moz-border-radius:		2px; 
-   	-webkit-border-radius:	2px; 
-   	border-radius:			2px;
+  -webkit-border-radius:	2px; 
+  border-radius:			2px;
 /*	font-weight:bold;*/
 	background:	-webkit-gradient(linear, left top, left bottom, from(#FFF), to(#EEE));
 	background: -moz-linear-gradient(top,  #FFF,  #EEE);

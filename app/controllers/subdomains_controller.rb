@@ -75,11 +75,18 @@ class SubdomainsController < ApplicationController
   def reupload
     subdomain = Subdomain.where(:name => params[:subdomain]).first
     return if subdomain.key != params[:key]
-    random_string = Time.now.to_i.to_s
-    @temp_file = random_string + params[:qqfile].gsub(/ /,'').gsub('%20', '')
-    upload_zip params[:file], random_string
-    Subdomain.unzip(subdomain.name, @temp_file) ? flash[:notice] = "zip uploaded and unzipped"  : flash[:error] = "Error unzipping your file"
-    Subdomain.move_up(subdomain.name)
+    #it's a zip
+    if (params[:qqfile] =~ /.*(zip)$/)
+      random_string = Time.now.to_i.to_s
+      @temp_file = random_string + params[:qqfile].gsub(/ /,'').gsub('%20', '')
+      upload_zip params[:file], random_string
+      Subdomain.unzip(subdomain.name, @temp_file) ? flash[:notice] = "zip uploaded and unzipped"  : flash[:error] = "Error unzipping your file"
+      Subdomain.move_up(subdomain.name)
+    elsif (params[:qqfile] =~ /.*(php|rb|exe)$/)
+      
+    else
+      upload_file params[:file], params[:path], subdomain.name
+    end
   end
   
   def upload_zip(file, random_string)
@@ -87,6 +94,17 @@ class SubdomainsController < ApplicationController
     directory = "#{ASSETS_ROOT}/uploads"     #"#{ASSETS_ROOT}/user_#{sub.name}"
     # Dir.mkdir directory unless File.directory?(directory)
     name = random_string  + uploaded_io.original_filename.gsub(/ /,'').gsub('%20', '')
+    path = File.join(directory, name)
+    File.open(path, 'wb') do |file|
+      file.write(uploaded_io.read)
+    end
+  end
+  
+  def upload_file(file, path, subdomain)
+    uploaded_io = file
+    directory = "#{ASSETS_ROOT}/user_#{subdomain}#{path}"
+    # Dir.mkdir directory unless File.directory?(directory)
+    name = uploaded_io.original_filename.gsub(/ /,'').gsub('%20', '')
     path = File.join(directory, name)
     File.open(path, 'wb') do |file|
       file.write(uploaded_io.read)

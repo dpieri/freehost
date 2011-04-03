@@ -107,10 +107,10 @@ input::-webkit-input-placeholder {
 #leftboxes_container .col_right ul li:first-child{
 	margin: 				0px;
 	width:					220px;
-	padding-bottom:			20px;
+	padding-bottom:			19px;
 	margin-bottom:			10px;
 	padding-left:			20px;
-	padding-top:			20px;
+	padding-top:			18px;
 	font-size: 				12px;
 	float: 					left;
 }
@@ -129,7 +129,7 @@ input::-webkit-input-placeholder {
 	font-size: 				11px;
 	line-height: 			140%;
 	color:					#999;
-	margin-left:			7px;
+	margin-right:			7px;
 }
 
 #rightbox img{
