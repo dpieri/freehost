@@ -124,7 +124,7 @@ input::-webkit-input-placeholder {
 	width:					60px;
 }
 #leftboxes_container .col_right ul li p{
-	float: 					left;
+	float: 					right;
 	width:					133px;
 	font-size: 				11px;
 	line-height: 			140%;

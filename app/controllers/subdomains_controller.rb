@@ -1,4 +1,5 @@
 class SubdomainsController < ApplicationController
+  before_filter :authenticate_user!, :except => [:reupload, :index]
   
   def show
     # @subdomain = Subdomain.find_by_subdomain(request.subdomain)
@@ -51,7 +52,7 @@ class SubdomainsController < ApplicationController
     sub.is_confirmed = false
     sub.key = "monkey"
     
-    Subdomain.unzip(sub.name, params[:temp_file]) ? flash[:notice] = "All good" : flash[:error] = "Error unzipping your file"
+    Subdomain.unzip(sub.name, params[:temp_file]) ? flash[:notice] = "zip uploaded and unzipped" : flash[:error] = "Error unzipping your file"
     Subdomain.move_up(sub.name)
     
     if sub.save 
@@ -65,11 +66,20 @@ class SubdomainsController < ApplicationController
   end
   
   def uploader
-    puts "rile is #{params[:file]} and title is #{params[:qqfile]}"
     random_string = Time.now.to_i.to_s
     @temp_file = random_string + params[:qqfile].gsub(/ /,'')
     upload_zip params[:file], random_string
     return true
+  end
+  
+  def reupload
+    subdomain = Subdomain.where(:name => params[:subdomain]).first
+    return if subdomain.key != params[:key]
+    random_string = Time.now.to_i.to_s
+    @temp_file = random_string + params[:qqfile].gsub(/ /,'')
+    upload_zip params[:file], random_string
+    Subdomain.unzip(subdomain.name, @temp_file) ? flash[:notice] = "zip uploaded and unzipped"  : flash[:error] = "Error unzipping your file"
+    Subdomain.move_up(subdomain.name)
   end
   
   def upload_zip(file, random_string)

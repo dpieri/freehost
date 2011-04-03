@@ -36,4 +36,21 @@
 	</div>
 </div>
 
+<script>
+	var uploader = new qq.FileUploader({
+	  element: document.getElementById('file_uploader'),
+	  action: '/subdomains/reupload',
+	  allowedExtensions: ['zip'],  
+	  debug: false,
+	  params: {
+	    subdomain: "<%=@subdomain.name%>",
+		key: "<%= @subdomain.key %>",
+		authenticity_token: $('meta[name=csrf-token]').attr('content')
+	  },
+	  onComplete: function(id, filename, responseJSON){
+		window.location.reload();
+	  }
+	});
+</script>
+
 

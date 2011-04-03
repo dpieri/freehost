@@ -11,7 +11,7 @@ module FreeHost
     
     #drag and drop file upload
     require 'rack/raw_upload'
-    config.middleware.use 'Rack::RawUpload', :paths => ['/subdomains/uploader']
+    config.middleware.use 'Rack::RawUpload', :paths => ['/subdomains/uploader', '/subdomains/reupload']
     
     # Settings in config/environments/* take precedence over those specified here.
     # Application configuration should go into files in config/initializers

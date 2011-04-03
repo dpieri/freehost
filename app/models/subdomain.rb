@@ -7,15 +7,18 @@ class Subdomain < ActiveRecord::Base
   
   def self.unzip(subdomain, file)
     directory = "#{ASSETS_ROOT}/user_#{subdomain}"
-    puts "directory is #{directory}"
+    # puts "directory is #{directory}"
     file_path = "#{ASSETS_ROOT}/uploads/#{file}"
-    puts "file path is #{file_path}"
+    # puts "file path is #{file_path}"
     Dir.mkdir directory unless File.directory?(directory)
     #empty directory
     Dir.foreach(directory) do |f|
-      if f == '.' or f == '..' then next
-      elsif File.directory?(f) then FileUtils.rm_rf(f)
-      else FileUtils.rm( f )
+      if f == '.' || f == '..' || f == '__MACOSX'
+        next
+      elsif File.directory?("#{directory}/#{f}")
+        FileUtils.rm_rf("#{directory}/#{f}")
+      elsif File.exists?("#{directory}/#{f}")
+        FileUtils.rm("#{directory}/#{f}")
       end
     end
     command = "unzip -u -d #{directory} #{file_path}"

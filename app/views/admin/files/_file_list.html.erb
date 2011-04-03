@@ -1,8 +1,20 @@
+<%= javascript_include_tag 'fileuploader.js' %>
+<%= stylesheet_link_tag 'fileuploader_list.css' %>
 
-	<li>
-		<img src="/images/smalldrop.jpg">
-		<p>Drop a new zipped file here to replace all files, or drop individual file at corresponding space to replace a specific file.</p>
-	</li>
+<li>
+	<div class="target_container">
+		<div id="file_uploader">			
+			<noscript>          
+		        <p>Please enable JavaScript to use file uploader.</p>
+		        <!-- or put a simple form for upload here -->
+		    </noscript>
+		</div>
+		
+	</div>
+	<p>Drop a new zipped file here to replace all files, or drop individual file at corresponding space to replace a specific file.</p>
+	<br class="clear" />
+	
+</li>
 
 <% if @this_dir && @this_dir != @parent_path%>
 	<li id="head"><strong><%= @this_dir %></strong><%= link_to "back", "#", :class=>"folder right", :subdomain => @subdomain.name, :path => @parent_path %></li>
