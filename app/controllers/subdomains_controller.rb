@@ -1,5 +1,5 @@
 class SubdomainsController < ApplicationController
-  before_filter :authenticate_user!, :except => [:reupload, :index]
+  # before_filter :authenticate_user!, :except => [:reupload, :index, :uploader]
   
   def show
     # @subdomain = Subdomain.find_by_subdomain(request.subdomain)
