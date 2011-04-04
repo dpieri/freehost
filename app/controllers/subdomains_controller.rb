@@ -26,7 +26,10 @@ class SubdomainsController < ApplicationController
       sub.name = params[:subdomain][:name]
       sub.is_confirmed = true
       sub.user = current_user
+      current_user.key ||= Array.new(15) { (rand(122-97) + 97).chr }.join
       sub.key = current_user.key
+      current_user.save
+      session[:logged_key] = current_user.key
       
       directory = "#{ASSETS_ROOT}/user_#{sub.name}"
       Dir.mkdir directory unless File.directory?(directory)

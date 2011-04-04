@@ -8,7 +8,7 @@ task :clearUsers => :environment do
     s.delete
   end
   
-  subdomains = Subdomain.create([{:name => 'www', :is_confirmed => true}, {:name => 'coralrift', :is_confirmed => true}])
+  subdomains = Subdomain.create([{:name => 'www', :is_confirmed => true}, {:name => 'coralrift', :is_confirmed => true}, {:name => 'asdf', :is_confirmed => true}])
 end
 
 desc "clear unclaimed subdomains"

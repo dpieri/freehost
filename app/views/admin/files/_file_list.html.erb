@@ -15,37 +15,42 @@
 		<p>Drop a zip here to replace your whole site.</p><p> Drop other files here to add them to your site</p>
 		<br class="clear" />
 	</li>
-	<% if @this_dir && @this_dir != @parent_path%>
-		<li id="head"><strong><%= @this_dir %></strong><%= link_to "back", "#", :class=>"folder right", :subdomain => @subdomain.name, :path => @parent_path %></li>
-	<% end %>
-	<% files.each_with_index do |f, i|%>
-		<% if f[0] %> <!-- It's a directory -->
-			<li><%= link_to f[1], "#", :class=>"folder", :path=> f[2], :subdomain => @subdomain.name %> </li>
-		<% else %> <!-- It's a file -->		
-			<li>
-				<%= truncate(f[1])%>
-				<%= link_to "remove", "/admin/delete_file?subdomain=#{@subdomain.name}&path=#{f[2]}", :class => 'remove', :remote => true%>
-			</li>
+	<% unless @subdomain.nil? %>
+		<% if @this_dir && @this_dir != @parent_path%>
+			<li id="head"><strong><%= @this_dir %></strong><%= link_to "back", "#", :class=>"folder right", :subdomain => @subdomain.name, :path => @parent_path %></li>
 		<% end %>
-	<% end %>
-</ul>
+		<% files.each_with_index do |f, i|%>
+			<% if f[0] %> <!-- It's a directory -->
+				<li><%= link_to f[1], "#", :class=>"folder", :path=> f[2], :subdomain => @subdomain.name %> </li>
+			<% else %> <!-- It's a file -->		
+				<li>
+					<%= truncate(f[1])%>
+					<%= link_to "remove", "/admin/delete_file?subdomain=#{@subdomain.name}&path=#{f[2]}", :class => 'remove', :remote => true%>
+				</li>
+			<% end %>
+		<% end %>
+		
+		</ul>
 
-<script>
-	function initUpload(){
-		console.log("<%=@parent_path%>" + "/" + "<%=@this_dir%>");
-		var uploader = new qq.FileUploader({
-		  element: document.getElementById('file_uploader'),
-		  action: '/subdomains/reupload', 
-		  debug: false,
-		  params: {
-		    subdomain: "<%=@subdomain.name%>",
-			key: "<%= @subdomain.key%>",
-			authenticity_token: $('meta[name=csrf-token]').attr('content'),
-			path: "<%=@parent_path%>" + "/" + "<%=@this_dir%>"
-		  },
-		  onComplete: function(id, filename, responseJSON){
-				window.location.reload();
-		  }
-		});
-	}
-</script>
+		<script>
+			function initUpload(){
+				console.log("<%=@parent_path%>" + "/" + "<%=@this_dir%>");
+				var uploader = new qq.FileUploader({
+				  element: document.getElementById('file_uploader'),
+				  action: '/subdomains/reupload', 
+				  debug: false,
+				  params: {
+				    subdomain: "<%=@subdomain.name%>",
+					key: "<%= @subdomain.key%>",
+					authenticity_token: $('meta[name=csrf-token]').attr('content'),
+					path: "<%=@parent_path%>" + "/" + "<%=@this_dir%>"
+				  },
+				  onComplete: function(id, filename, responseJSON){
+						window.location.reload();
+				  }
+				});
+			}
+		</script>
+	<% else %>
+		</ul>
+	<% end %>
