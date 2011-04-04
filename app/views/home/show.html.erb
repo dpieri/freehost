@@ -1,4 +1,5 @@
 <%= stylesheet_link_tag "landing" %>
+
 <div id="whitestrip">
 	<div class="w960">
 		<div class="col6"><div class="col5">
@@ -15,7 +16,8 @@
 	</div>
 </div>
 <div class="w960">
-	<br><br><br><br><h2>See it for yourself!</h2><br>
-	<%= render :partial => 'subdomains/new'%>
 	
+	<br><br><br><br><h2>See it for yourself!</h2><br>
+	<%= render :partial => 'layouts/shitty_browser', :locals => {:margin => "30px"}%>
+	<%= render :partial => 'subdomains/new'%>
 </div>

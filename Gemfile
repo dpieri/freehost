@@ -7,6 +7,10 @@ gem 'rails', '3.0.5'
 
 gem 'rack-raw-upload'
 
+#html page previews
+#not 1.9.2 compatable
+# gem 'simplificator-rwebthumb'
+
 gem 'sqlite3'
 
 gem 'devise'

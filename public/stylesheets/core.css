@@ -201,3 +201,14 @@ img.stroke{
 	color:						#202020;
 }
 
+#shitty_browser{
+	width: 840px;
+	margin: 20px auto -30px auto;
+	text-align: center;
+	font-size: 16px;
+	color: #202020;
+	background: #E99B47;
+	border: 3px solid #E27E12;
+	padding: 8px;
+}
+
