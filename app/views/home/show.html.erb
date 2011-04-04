@@ -18,6 +18,6 @@
 <div class="w960">
 	
 	<br><br><br><br><h2>See it for yourself!</h2><br>
-	<%= render :partial => 'layouts/shitty_browser', :locals => {:margin => "30px"}%>
+	<%= render :partial => 'layouts/inline_message', :locals => {:margin => "30px"} if @is_shitty_browser%>
 	<%= render :partial => 'subdomains/new'%>
 </div>
