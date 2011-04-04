@@ -39,7 +39,7 @@
 		  debug: false,
 		  params: {
 		    subdomain: "<%=@subdomain.name%>",
-			key: "<%= @subdomain.key %>",
+			key: "<%= @subdomain.key%>",
 			authenticity_token: $('meta[name=csrf-token]').attr('content'),
 			path: "<%=@parent_path%>" + "/" + "<%=@this_dir%>"
 		  },

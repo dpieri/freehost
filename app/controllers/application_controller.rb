@@ -39,7 +39,6 @@ class ApplicationController < ActionController::Base
   
   def detect_browser
     @is_shitty_browser = users_browser
-    puts @is_shitty_browser
   end
   
   def users_browser

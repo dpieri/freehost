@@ -50,7 +50,7 @@ class SubdomainsController < ApplicationController
     sub = Subdomain.new
     sub.name = params[:subdomain][:name]
     sub.is_confirmed = false
-    sub.key = (size = 25; (0..size).inject('') { |r, i| r << rand(93) + 33 })
+    sub.key = Array.new(15) { (rand(122-97) + 97).chr }.join
     session[:key] = sub.key
     
     Subdomain.unzip(sub.name, params[:temp_file]) ? flash[:notice] = "zip uploaded and unzipped" : flash[:error] = "Error unzipping your file"
