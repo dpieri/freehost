@@ -8,7 +8,7 @@ class ApplicationController < ActionController::Base
   # include Simplificator::Webthumb
   
   def after_sign_in_path_for(resource)
-      "/admin"
+    "/admin"
   end
   
   def init_web_thumb

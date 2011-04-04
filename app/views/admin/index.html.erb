@@ -28,7 +28,7 @@
 	
 		<div class="col_right">
 			<div class="headerbar headerbar2">Files</div>	
-			<%= render :partial => 'admin/files/file_list', :locals => {:files => @files}%>
+			<%= render :partial => 'admin/files/file_list', :locals => {:files => @files} unless @subdomain.nil? %>
 		</div>
 		<div class="clear"></div>
 	</div>

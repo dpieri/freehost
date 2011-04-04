@@ -11,8 +11,11 @@ class AdminController < ApplicationController
     else
       @subdomain = @subdomains.first
     end
-    
+
     @new_subdomain = Subdomain.new
+    #return if they don't have any subdomains
+    return if @subdomain.nil?
+    
     directory = "#{ASSETS_ROOT}/user_#{@subdomain.name}"
     @files = index_directory(@subdomain.name, "")
   end
