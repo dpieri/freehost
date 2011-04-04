@@ -37,6 +37,7 @@ class Subdomain < ActiveRecord::Base
     Dir.foreach(directory) do |e|
       if File.directory?("#{directory}/#{e}")
         next if e == '.' || e == '..' || e == "__MACOSX"
+        File.chmod(0766, "#{directory}/#{e}")
         command = "mv #{directory}/#{e}/* #{directory}"
         system(command)
         #remove the zip parent directory this does not error gracefully
