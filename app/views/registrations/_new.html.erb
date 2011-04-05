@@ -3,7 +3,9 @@
 <div class="clear">
 <div id="leftarea">
 <div id="leftbox" class="site_preview">
-	<%= image_tag ApplicationHelper::fetch_thumbnail("#{@subdomain.name}.coralrift.com")%>
+	<div id="thumbnail">
+		<img src="/images/thumb_loading.gif" style="margin: 100px auto 0 auto; display: block">
+	</div>
 </div>
 <div id="lefttext">
 	<%= link_to "http://#{@subdomain.name}.coralrift.com", "http://#{@subdomain.name}.coralrift.com", :class => 'boxed'%>
@@ -30,3 +32,10 @@ on your right or <%= link_to "login", "/users/sign_in"%> to claim it permanently
 	<% end %>
 </div>
 
+<% image_link = image_tag ApplicationHelper::fetch_thumbnail(@subdomain.name + '.coralrift.com')%>
+
+<script>
+	$(document).ready(function(){
+		$("#thumbnail").html("<%= escape_javascript(image_link) %>");
+	});
+</script>

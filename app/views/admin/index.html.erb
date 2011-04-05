@@ -36,7 +36,9 @@
 
 	<div id="rightbox">	
 		<% unless @subdomain.nil?%>
-			<%= image_tag ApplicationHelper::fetch_thumbnail("#{@subdomain.name}.coralrift.com")%>
+			<div id="thumbnail">
+				<img src="/images/thumb_loading.gif" style="margin: 100px auto 0 auto; display: block">
+			</div>
 		<% else %>
 			<img src="/images/preview1.jpg">
 		<% end %>
@@ -44,4 +46,11 @@
 	</div>
 </div>
 
+<% image_link = image_tag ApplicationHelper::fetch_thumbnail(@subdomain.name + '.coralrift.com')%>
+
+<script>
+	$(document).ready(function(){
+		$("#thumbnail").html("<%= escape_javascript(image_link) %>");
+	});
+</script>
 
