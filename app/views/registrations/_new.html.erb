@@ -32,10 +32,13 @@ on your right or <%= link_to "login", "/users/sign_in"%> to claim it permanently
 	<% end %>
 </div>
 
+
 <% image_link = link_to image_tag(ApplicationHelper::fetch_thumbnail(@subdomain.name + '.coralrift.com')), "http://#{@subdomain.name}.coralrift.com"%>
 
 <script>
 	$(document).ready(function(){
-		$("#thumbnail").html("<%= escape_javascript(image_link) %>");
+		setTimeout(function(){
+			$("#thumbnail").html("<%=escape_javascript(image_link)%>");
+		}, 1000);
 	});
 </script>

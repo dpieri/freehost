@@ -50,7 +50,9 @@
 
 <script>
 	$(document).ready(function(){
-		$("#thumbnail").html("<%= escape_javascript(image_link) %>");
+		setTimeout(function(){
+			$("#thumbnail").html("<%=escape_javascript(image_link)%>");
+		}, 1000);
 	});
 </script>
 
