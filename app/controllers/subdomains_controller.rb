@@ -18,8 +18,10 @@ class SubdomainsController < ApplicationController
       #DRY!
       if Subdomain.exists?(:name => params[:subdomain][:name])
         flash[:error] = "Sorry, somebody already has that subdomain"
-        redirect_to "/admin"
-        return
+        redirect_to "/admin" and return
+      elsif params[:subdomain][:name].empty?
+        flash[:error] = "I think you forgot to choose a subdomain"
+        redirect_to root_path and return
       end
       
       sub = Subdomain.new
@@ -46,6 +48,9 @@ class SubdomainsController < ApplicationController
     
     if Subdomain.exists?(:name => params[:subdomain][:name])
       flash[:error] = "Sorry, somebody already has that subdomain"
+      redirect_to root_path and return
+    elsif params[:subdomain][:name].empty?
+      flash[:error] = "I think you forgot to choose a subdomain"
       redirect_to root_path and return
     elsif params[:temp_file].empty?
       flash[:error] = "I think you forgot to upload a zip"
