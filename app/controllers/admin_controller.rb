@@ -33,13 +33,17 @@ class AdminController < ApplicationController
   def index_directory(subdomain, rel_dir)
     files = []
     absolute_path = "#{ASSETS_ROOT}/user_#{subdomain}/#{rel_dir}"
+    no_files = true
+    has_index = false
     Dir.foreach(absolute_path) do |e|
       skip = false
       ['.', '..', '__MACOSX'].each{|test| skip = true if test == e}
       next if skip
-      @index = true if e == 'index.html' || e == 'index.htm'
+      no_files = false
+      has_index = true if e == 'index.html' || e == 'index.htm'
       files << [File.directory?("#{absolute_path}/#{e}"), e, "#{rel_dir}/#{e}" ]
     end
+    @has_index = has_index || no_files  #only give warning if there are files but no index.html
     files
   end
   

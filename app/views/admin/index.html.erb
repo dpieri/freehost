@@ -2,7 +2,7 @@
 <%= stylesheet_link_tag "manage" %>
 
 <%= render 'layouts/inline_message' if @is_shitty_browser%>
-<%= render :partial => 'layouts/inline_message', :locals => {:message => 'Make sure your home page is called index.html'} unless @index %>
+<%= render :partial => 'layouts/inline_message', :locals => {:message => 'Make sure your home page is called index.html'} unless @has_index %>
 
 <div class="w960">
 	<h2 class="maintitle">MANAGE YOUR SITES</h2>
