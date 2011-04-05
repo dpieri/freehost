@@ -11,32 +11,6 @@ class ApplicationController < ActionController::Base
     "/admin"
   end
   
-  def init_web_thumb
-    # wt = Webthumb.new('f48f1f5fc910564a8f03a03bd455536c')
-
-    # Create a new thumbnail job
-    # job = wt.thumbnail(:url => 'http://cmu.edu')
-    # fetch the thumbnail. this might throw an exception from server side
-    # if thumb is not ready yet
-    # job.fetch(:large)
-    # job.write_file(job.fetch(:large), '/tmp/test.jpg')
-    
-    # et = Easythumb.new('f48f1f5fc910564a8f03a03bd455536c', '11144')
-    # This returns an URL which you can directly use in your webpage
-    # puts et.build_url(:url => 'http://cmu.edu', :size => :large, :cache => 1)
-    date = Time.now.strftime("%Y%m%d")
-    puts date
-    url = "http://cmu.edu"
-    key = 'f48f1f5fc910564a8f03a03bd455536c'
-    puts "#{date}#{url}#{key}"
-    
-    
-    hash = Digest::MD5.hexdigest("#{date}#{url}#{key}")
-    puts hash
-    # puts "http://webthumb.bluga.net/easythumb.php?user=11144&url=cmu.edu&size=medium&cache=1&hash=#{hash}"
-    puts "http://webthumb.bluga.net/easythumb.php?url=http%3A%2F%2Fcmu.edu%2F&cache=5&hash=#{hash}&user=11144&size=large"
-  end
-  
   def detect_browser
     @is_shitty_browser = users_browser
   end

@@ -35,7 +35,11 @@
 	</div>
 
 	<div id="rightbox">	
-		<img src="/images/preview1.jpg">
+		<% unless @subdomain.nil?%>
+			<%= image_tag ApplicationHelper::fetch_thumbnail("#{@subdomain.name}.coralrift.com")%>
+		<% else %>
+			<img src="/images/preview1.jpg">
+		<% end %>
 		<a href="" class="right" style="margin-top:20px";>Preview</a>
 	</div>
 </div>

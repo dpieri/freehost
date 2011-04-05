@@ -2,11 +2,11 @@
 <h2 style="margin-left:360px;" class="maintitle">SIGN UP</h2>
 <div class="clear">
 <div id="leftarea">
-<div id="leftbox">
-	<img src="images/preview1.jpg">
+<div id="leftbox" class="site_preview">
+	<%= image_tag ApplicationHelper::fetch_thumbnail("#{@subdomain.name}.coralrift.com")%>
 </div>
 <div id="lefttext">
-	<a class="boxed" href="">http://<%= @subdomain.name %>.coralrift.com</a>
+	<%= link_to "http://#{@subdomain.name}.coralrift.com", "http://#{@subdomain.name}.coralrift.com", :class => 'boxed'%>
 	<br><br>
 	Your site is done! The preview will expire at midnight tomorrow. Sign up
 on your right or <%= link_to "login", "/users/sign_in"%> to claim it permanently!

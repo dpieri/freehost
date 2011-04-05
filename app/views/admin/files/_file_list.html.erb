@@ -17,7 +17,9 @@
 	</li>
 	<% unless @subdomain.nil? %>
 		<% if @this_dir && @this_dir != @parent_path%>
-			<li id="head"><strong><%= @this_dir %></strong><%= link_to "back", "#", :class=>"folder right", :subdomain => @subdomain.name, :path => @parent_path %></li>
+			<li id="head">
+				<strong><%= @this_dir %></strong><%= link_to "back", "#", :class=>"folder right", :subdomain => @subdomain.name, :path => @parent_path %>
+			</li>
 		<% end %>
 		<% files.each_with_index do |f, i|%>
 			<% if f[0] %> <!-- It's a directory -->
