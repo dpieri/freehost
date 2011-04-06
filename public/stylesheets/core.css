@@ -83,6 +83,10 @@ p{
 strong{
 		font-weight:			bold;
 }
+.center{
+	text-align: center;
+	margin: 40px 0 0 0;
+}
 /* FORMS---------------------------------------------------------------------- */
 input{
 		font-size:				14px;

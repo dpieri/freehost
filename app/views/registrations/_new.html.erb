@@ -37,8 +37,13 @@ on your right or <%= link_to "login", "/users/sign_in"%> to claim it permanently
 
 <script>
 	$(document).ready(function(){
+		var hasContent = <%=@show_preview%>;
 		setTimeout(function(){
-			$("#thumbnail").html("<%=escape_javascript(image_link)%>");
-		}, 1000);
+			if(hasContent == true){
+				$("#thumbnail").html("<%=escape_javascript(image_link)%>");
+			} else {
+				$("#thumbnail").html("<div class='center'>Nothing to preview yet </div>");
+			}
+		}, 500);
 	});
 </script>

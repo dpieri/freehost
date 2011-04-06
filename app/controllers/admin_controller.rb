@@ -44,6 +44,7 @@ class AdminController < ApplicationController
       files << [File.directory?("#{absolute_path}/#{e}"), e, "#{rel_dir}/#{e}" ]
     end
     @has_index = has_index || no_files  #only give warning if there are files but no index.html
+    @show_preview = has_index
     files
   end
   
