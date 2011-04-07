@@ -129,6 +129,7 @@ class SubdomainsController < ApplicationController
     #signup for stuff
     @user = User.new
     @user_resource_name = :user
+    @show_preview = true
     
     #list the files
     directory = "#{ASSETS_ROOT}/user_#{@subdomain.name}"

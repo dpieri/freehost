@@ -28,8 +28,16 @@
 		</div>
 	
 		<div class="col_right">
-			<div class="headerbar headerbar2">Files</div>	
-			<%= render :partial => 'admin/files/file_list', :locals => {:files => @files} unless @subdomain.nil? %>
+			<div class="headerbar headerbar2">Files</div>
+			<% unless @subdomain.nil? %>
+				<%= render :partial => 'admin/files/file_list', :locals => {:files => @files}%>
+			<% else %>
+				<script>
+					function initUpload(){
+						//do nothing
+					}
+				</script>
+			<% end %>
 		</div>
 		<div class="clear"></div>
 	</div>
@@ -40,13 +48,15 @@
 				<img src="/images/thumb_loading.gif" style="margin: 100px auto 0 auto; display: block">
 			</div>
 		<% else %>
-			<img src="/images/preview1.jpg">
+			<div id="thumbnail">
+				<img src="/images/thumb_loading.gif" style="margin: 100px auto 0 auto; display: block">
+			</div>
 		<% end %>
 		<!-- <a href="" class="right" style="margin-top:20px";>Preview</a> -->
 	</div>
 </div>
 
-<% image_link = link_to image_tag(ApplicationHelper::fetch_thumbnail(@subdomain.name + '.coralrift.com')), "http://#{@subdomain.name}.coralrift.com"%>
+<% image_link = link_to image_tag(ApplicationHelper::fetch_thumbnail(@subdomain.name + '.coralrift.com')), "http://#{@subdomain.name}.coralrift.com" if @show_preview%>
 
 <script>
 	$(document).ready(function(){
