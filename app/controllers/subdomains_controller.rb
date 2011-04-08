@@ -14,6 +14,9 @@ class SubdomainsController < ApplicationController
     elsif params[:subdomain][:name].match(/\./)
       flash[:error] = "Please choose a subdomain name without periods"
       redirect_to root_path and return
+    elsif params[:subdomain][:name].length < 3
+      flash[:error] = "Subdomains have to be at least 3 characters for now"
+      redirect_to root_path and return
     end
     
     if params[:no_zip] == "true"
