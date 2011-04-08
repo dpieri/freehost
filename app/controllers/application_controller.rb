@@ -16,7 +16,7 @@ class ApplicationController < ActionController::Base
   end
   
   def users_browser
-  return unless request.env['HTTP_USER_AGENT']
+  return  false unless request.env['HTTP_USER_AGENT']
   user_agent =  request.env['HTTP_USER_AGENT'].downcase 
   @users_browser ||= begin
     if user_agent.index('msie') && !user_agent.index('opera') && !user_agent.index('webtv')
