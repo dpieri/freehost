@@ -216,3 +216,13 @@ img.stroke{
 	padding: 8px;
 }
 
+/* SITE PREVIEWS---------------------------------------------------------------------- */
+#thumbnail{
+	height: 100%;
+	background: url("/images/thumb_loading.gif") no-repeat scroll center center transparent;
+}
+
+
+
+
+

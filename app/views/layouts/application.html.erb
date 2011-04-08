@@ -29,7 +29,7 @@
 			<a href="/">  <span class="logo left">coral<span class="orange">rift</span></span>	</a>
 			<div class="right">
 				<% if current_user %>
-					<%= link_to "Logout", "users/sign_out", :class => "right"%>
+					<%= link_to "Logout", "/users/sign_out", :class => "right"%>
 					<span class="white right">&nbsp; / &nbsp;</span>
 					<%= link_to "#{current_user.email} ", "/admin", :class => "right"%>
 				<% else %>

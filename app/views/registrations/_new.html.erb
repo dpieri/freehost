@@ -4,7 +4,6 @@
 <div id="leftarea">
 <div id="leftbox" class="site_preview">
 	<div id="thumbnail">
-		<img src="/images/thumb_loading.gif" style="margin: 100px auto 0 auto; display: block">
 	</div>
 </div>
 <div id="lefttext">
@@ -40,10 +39,11 @@ on your right or <%= link_to "login", "/users/sign_in"%> to claim it permanently
 		var hasContent = <%=@show_preview%>;
 		setTimeout(function(){
 			if(hasContent == true){
-				$("#thumbnail").html("<%=escape_javascript(image_link)%>");
+				$("#thumbnail").html($("#thumbnail").html() + "<%=escape_javascript(image_link)%>");
 			} else {
 				$("#thumbnail").html("<div class='center'>Nothing to preview yet </div>");
+				$("#thumbnail").css('background', '#fff');
 			}
-		}, 500);
+		}, 300);
 	});
 </script>

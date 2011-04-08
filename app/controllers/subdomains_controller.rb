@@ -10,8 +10,10 @@ class SubdomainsController < ApplicationController
   def create
     if params[:subdomain][:name].match(/\s/)
       flash[:error] = "Please choose a subdomain name without spaces"
-      redirect_to root_path
-      return
+      redirect_to root_path and return
+    elsif params[:subdomain][:name].match(/\./)
+      flash[:error] = "Please choose a subdomain name without periods"
+      redirect_to root_path and return
     end
     
     if params[:no_zip] == "true"
@@ -38,7 +40,7 @@ class SubdomainsController < ApplicationController
       
       if sub.save 
         flash[:notice] = "Subdomain Claimed"
-        redirect_to "/admin"
+        redirect_to "/admin/#{sub.name}"
       else 
         flash[:error] = "Oops! Something wen't wrong. Please try again"
         redirect_to "/admin"

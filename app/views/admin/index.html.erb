@@ -43,15 +43,8 @@
 	</div>
 
 	<div id="rightbox">	
-		<% unless @subdomain.nil?%>
-			<div id="thumbnail">
-				<img src="/images/thumb_loading.gif" style="margin: 100px auto 0 auto; display: block">
-			</div>
-		<% else %>
-			<div id="thumbnail">
-				<img src="/images/thumb_loading.gif" style="margin: 100px auto 0 auto; display: block">
-			</div>
-		<% end %>
+		<div id="thumbnail">
+		</div>
 		<!-- <a href="" class="right" style="margin-top:20px";>Preview</a> -->
 	</div>
 </div>
@@ -63,11 +56,12 @@
 		var hasContent = <%=@show_preview%>;
 		setTimeout(function(){
 			if(hasContent == true){
-				$("#thumbnail").html("<%=escape_javascript(image_link)%>");
+				$("#thumbnail").html($("#thumbnail").html() + "<%=escape_javascript(image_link)%>");
 			} else {
 				$("#thumbnail").html("<div class='center'>Nothing to preview yet </div>");
+				$("#thumbnail").css('background', '#fff');
 			}
-		}, 500);
+		}, 300);
 	});
 </script>
 
