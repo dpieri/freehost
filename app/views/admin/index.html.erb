@@ -11,7 +11,7 @@
 	<div id="leftboxes_container">
 	
 		<div class="col_left">
-			<div class="headerbar">Domains</div>
+			<div class="headerbar">Subdomains</div>
 			<ul>
 				<% @subdomains.each do |s|%>
 					<%= raw("<strong>") if s == @subdomain%>
@@ -20,7 +20,7 @@
 				<% end %>
 				<li class="last">
 					<%= form_for @new_subdomain do |s|%>
-						/<%= s.text_field :name, :placeholder => "Add New Site" %>
+						<%= s.text_field :name, :placeholder => "Add New Site" %>.
 						<%= hidden_field_tag :no_zip, "true" %>
 					<% end %>
 				</li>
@@ -45,8 +45,10 @@
 	<div id="rightbox">	
 		<div id="thumbnail">
 		</div>
-		<!-- <a href="" class="right" style="margin-top:20px";>Preview</a> -->
 	</div>
+	<% unless @subdomain.nil? %>
+		<a href="http://<%="#{@subdomain.name}.coralrift.com"%>" class="boxed right clear" style="margin-top:20px"><%="http://#{@subdomain.name}.coralrift.com"%></a>
+	<% end %>
 </div>
 
 <% image_link = link_to image_tag(ApplicationHelper::fetch_thumbnail(@subdomain.name + '.coralrift.com')), "http://#{@subdomain.name}.coralrift.com" if @show_preview%>

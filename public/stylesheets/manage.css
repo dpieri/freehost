@@ -138,6 +138,12 @@ input::-webkit-input-placeholder {
 	max-width: 440px;
 }
 
+a.boxed{
+	padding:				5px;
+	background-color: 		#ff641e;
+	color:					white;
+}
+
 
 
 /* FILE UPLOAD AND REMOVE----------------------------------------------- */
