@@ -98,7 +98,7 @@ class SubdomainsController < ApplicationController
       upload_zip params[:file], random_string
       Subdomain.unzip(subdomain.name, @temp_file) ? flash[:notice] = "zip uploaded and unzipped"  : flash[:error] = "Error unzipping your file"
       Subdomain.move_up(subdomain.name)
-    elsif (params[:qqfile] =~ /.*(php|rb|exe)$/)
+    elsif (params[:qqfile] =~ /.*(exe)$/)
       
     else
       upload_file params[:file], params[:path], subdomain.name
