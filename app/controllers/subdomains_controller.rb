@@ -68,6 +68,9 @@ class SubdomainsController < ApplicationController
     sub.key = Array.new(15) { (rand(122-97) + 97).chr }.join
     session[:key] = sub.key
     
+    directory = "#{ASSETS_ROOT}/user_#{sub.name}"
+    Dir.mkdir directory unless File.directory?(directory)
+    
     Subdomain.unzip(sub.name, params[:temp_file]) ? flash[:notice] = "zip uploaded and unzipped" : flash[:error] = "Error unzipping your file"
     Subdomain.move_up(sub.name)
     
