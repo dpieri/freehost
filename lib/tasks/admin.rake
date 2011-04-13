@@ -18,6 +18,27 @@ task :clearUnClaimed => :environment do
   end
 end
 
+task :checkForDupes => :environment do
+  subs = Subdomain.find(:all)
+  subs.each do |s|
+    subs.each do |ss|
+      puts "#{s.name} : #{s.user_id} and #{ss.name} : #{ss.user_id}" if s != ss && s.name.downcase == ss.name
+      s.delete
+    end
+  end
+end
+
+task :downcase => :environment do 
+  subs = Subdomain.find(:all)
+  subs.each do |s|
+    if s.name.downcase != s.name
+      s.name = s.name.downcase
+      s.save
+      command = "mv #{ASSETS_ROOT}/user_#{s.name} #{ASSETS_ROOT}/user_#{s.name.downcase}"
+    end
+  end
+end
+
 
 desc "fix users without keys"
 task :fixKeys => :environment do
