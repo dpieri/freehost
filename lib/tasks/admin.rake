@@ -26,4 +26,11 @@ task :fixKeys => :environment do
       puts "subdomain: #{s.name} key:#{s.key}"
     end
   end
+  
+  Subdomain.find_each do |s|
+    next if s.user &&  s.user.key
+    puts s.user.email
+    puts s.key
+    puts s.user.key
+  end
 end
