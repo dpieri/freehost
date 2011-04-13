@@ -51,6 +51,8 @@ task :fixKeys => :environment do
   User.find_each do |u|
     next unless u.key.nil?
     puts "nil user #{u.id}"
+    u.key = Array.new(15) { (rand(122-97) + 97).chr }.join
+    u.save
     puts "with subdomains #{u.subdomains.length}"
   end
   puts "something"
