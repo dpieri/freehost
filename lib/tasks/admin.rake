@@ -28,9 +28,15 @@ task :fixKeys => :environment do
   end
   
   Subdomain.find_each do |s|
-    next if s.user &&  s.user.key
-    puts s.user.email
-    puts s.key
-    puts s.user.key
+    next if s.user.nil?
+    if s.user.key.nil? && s.key
+      puts "sub key is #{s.key}"
+      s.user.key = s.key
+    elsif s.key.nil? && s.user.key
+      puts "user key is #{s.user.key}"
+      s.key = s.user.key
+    elsif s.user.key.nil?
+      puts "no key for #{s} on user #{s.user}"
+    end
   end
 end
