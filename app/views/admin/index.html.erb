@@ -39,16 +39,19 @@
 				</script>
 			<% end %>
 		</div>
-		<div class="clear"></div>
+		<!-- <div class="clear"></div> -->
 	</div>
 
 	<div id="rightbox">	
 		<div id="thumbnail">
 		</div>
 	</div>
+	
 	<% unless @subdomain.nil? %>
-		<a href="http://<%="#{@subdomain.name}.coralrift.com"%>" class="boxed right clear" style="margin-top:20px"><%="http://#{@subdomain.name}.coralrift.com"%></a>
+		<a href="http://<%="#{@subdomain.name}.coralrift.com"%>" class="boxed right clear" style="margin-top:30px;">
+		<%="http://#{@subdomain.name}.coralrift.com"%></a>
 	<% end %>
+
 </div>
 
 <% image_link = link_to image_tag(ApplicationHelper::fetch_thumbnail(@subdomain.name + '.coralrift.com')), "http://#{@subdomain.name}.coralrift.com" if @show_preview%>
