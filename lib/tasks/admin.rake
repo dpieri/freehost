@@ -39,4 +39,10 @@ task :fixKeys => :environment do
       puts "no key for #{s} on user #{s.user}"
     end
   end
+  
+  User.find_each do |u|
+    next unless u.key.nil?
+    puts "nil user #{u.email}"
+    puts "with subdomains #{u.subdomains.length}"
+  end
 end
