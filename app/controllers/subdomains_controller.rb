@@ -30,7 +30,7 @@ class SubdomainsController < ApplicationController
       end
       
       sub = Subdomain.new
-      sub.name = params[:subdomain][:name]
+      sub.name = params[:subdomain][:name].downcase
       sub.is_confirmed = true
       sub.user = current_user
       current_user.key ||= Array.new(15) { (rand(122-97) + 97).chr }.join
@@ -63,7 +63,7 @@ class SubdomainsController < ApplicationController
     end
     
     sub = Subdomain.new
-    sub.name = params[:subdomain][:name]
+    sub.name = params[:subdomain][:name].downcase
     sub.is_confirmed = false
     sub.key = Array.new(15) { (rand(122-97) + 97).chr }.join
     session[:key] = sub.key
