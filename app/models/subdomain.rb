@@ -42,7 +42,9 @@ class Subdomain < ActiveRecord::Base
         command = "mv #{directory}/#{e}/* #{directory}"
         system(command)
         #remove the zip parent directory this does not error gracefully
-        Dir.delete("#{directory}/#{e}")
+        command = "rm -rf #{directory}/#{e}"
+        system(command)
+        # Dir.delete("#{directory}/#{e}")
       else
         next if e == '.' || e == '..' || e == "__MACOSX"
         File.chmod(0777, "#{directory}/#{e}")
