@@ -21,7 +21,7 @@ end
 
 desc "fix users without keys"
 task :fixKeys => :environment do
-  User.where(:key => nil).each do |u|
+  User.where("key is null").each do |u|
     u.subdomains.each do |s|
       puts "subdomain: #{s.name} key:#{s.key}"
     end
