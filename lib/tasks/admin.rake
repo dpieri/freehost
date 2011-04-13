@@ -17,3 +17,13 @@ task :clearUnClaimed => :environment do
     s.delete if s.is_confirmed == false || s.is_confirmed.nil? && Time.now - 24.hours > s.created_at
   end
 end
+
+
+desc "fix users without keys"
+task :fixKeys => :environment do
+  User.where(:key => nil).each do |u|
+    u.subdomains.each do |s|
+      puts "subdomain: #{s.name} key:#{s.key}"
+    end
+  end
+end
