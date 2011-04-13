@@ -45,4 +45,6 @@ task :fixKeys => :environment do
     puts "nil user #{u.email}"
     puts "with subdomains #{u.subdomains.length}"
   end
+  puts "something"
+  puts User.find(:all).count
 end
