@@ -24,7 +24,7 @@ class AdminController < ApplicationController
   
   def directory
     @subdomain = current_user.subdomains.where(:name => params[:subdomain]).first
-    redirect_to root_path and return unless @subdomain && @subdomain.key == session[:logged_key]
+    redirect_to root_path and puts "no match on directory" and return unless @subdomain && @subdomain.key == session[:logged_key]
     @this_dir = params[:path].split('/').last
     @parent_path = params[:path].sub("/#{@this_dir}", '')
     # directory = "#{ASSETS_ROOT}#{params[:path]}"

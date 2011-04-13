@@ -21,7 +21,7 @@ class SubdomainsController < ApplicationController
     
     if params[:no_zip] == "true"
       #DRY!
-      if Subdomain.exists?(:name => params[:subdomain][:name])
+      if Subdomain.exists?(:name => params[:subdomain][:name]) || Subdomain.exists?(:name => params[:subdomain][:name].downcase)
         flash[:error] = "Sorry, somebody already has that subdomain"
         redirect_to "/admin" and return
       elsif params[:subdomain][:name].empty?
@@ -51,7 +51,7 @@ class SubdomainsController < ApplicationController
       return
     end
     
-    if Subdomain.exists?(:name => params[:subdomain][:name])
+    if Subdomain.exists?(:name => params[:subdomain][:name]) || Subdomain.exists?(:name => params[:subdomain][:name].downcase)
       flash[:error] = "Sorry, somebody already has that subdomain"
       redirect_to root_path and return
     elsif params[:subdomain][:name].empty?
@@ -91,7 +91,7 @@ class SubdomainsController < ApplicationController
   
   def reupload
     subdomain = Subdomain.where(:name => params[:subdomain]).first
-    return if subdomain.key != params[:key]
+    puts "no match" and return if subdomain.key != params[:key]
     #it's a zip
     if (params[:qqfile] =~ /.*(zip)$/)
       random_string = Time.now.to_i.to_s

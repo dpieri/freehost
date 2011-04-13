@@ -14,6 +14,9 @@ class RegistrationsController < Devise::RegistrationsController
       session[:logged_key] = subdomain.user.key
       subdomain.is_confirmed = true
       subdomain.save
+    else
+      @user.key = Array.new(15) { (rand(122-97) + 97).chr }.join
+      @user.save
     end
   end
 

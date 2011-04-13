@@ -13,6 +13,7 @@ class SessionsController < Devise::SessionsController
       subdomain.key = subdomain.user.key
       subdomain.is_confirmed = true
       subdomain.save
+      # session[:subdomain] = nil
     end
   end
 
