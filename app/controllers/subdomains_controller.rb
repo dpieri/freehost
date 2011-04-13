@@ -85,6 +85,7 @@ class SubdomainsController < ApplicationController
     random_string = Time.now.to_i.to_s
     @temp_file = random_string + params[:qqfile].gsub(/ /,'')
     upload_zip params[:file], random_string
+    render 'subdomains/uploader.js.erb'
     return true
   end
   
@@ -103,6 +104,7 @@ class SubdomainsController < ApplicationController
     else
       upload_file params[:file], params[:path], subdomain.name
     end
+    render 'subdomains/reupload.js.erb'
   end
   
   def upload_zip(file, random_string)

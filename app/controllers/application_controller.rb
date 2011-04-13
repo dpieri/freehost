@@ -22,7 +22,7 @@ class ApplicationController < ActionController::Base
     if user_agent.index('msie') && !user_agent.index('opera') && !user_agent.index('webtv')
           true
       elsif user_agent.index('gecko/')
-          true
+          false
       elsif user_agent.index('opera')
           false
       elsif user_agent.index('konqueror')
