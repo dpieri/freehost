@@ -23,7 +23,7 @@ task :checkForDupes => :environment do
   subs.each do |s|
     subs.each do |ss|
       puts "#{s.name} : #{s.user_id} and #{ss.name} : #{ss.user_id}" if s != ss && s.name.downcase == ss.name
-      s.delete
+      s.delete if s != ss && s.name.downcase == ss.name
     end
   end
 end
