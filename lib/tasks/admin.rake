@@ -65,18 +65,18 @@ task :fixKeys => :environment do
     if s.user.key.nil? && s.key
       puts "sub key is #{s.key}"
       s.user.key = s.key
-      # s.user.save
+      s.user.save
     elsif s.key.nil? && s.user.key
       puts "user key is #{s.user.key}"
       s.key = s.user.key
-      # s.save
+      s.save
     elsif s.user.key.nil?
       puts "no key for #{s} on user #{s.user}"
       key = Array.new(15) { (rand(122-97) + 97).chr }.join
       s.key = key
       s.user.key = key
-      # s.save
-      # s.user.save
+      s.save
+      s.user.save
     end
   end
   
