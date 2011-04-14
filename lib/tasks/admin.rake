@@ -31,8 +31,8 @@ end
 task :downcase => :environment do 
   subs = Subdomain.find(:all)
   subs.each do |s|
-    command = "mv #{ASSETS_ROOT}/user_#{s.name} #{ASSETS_ROOT}/user_#{s.name.downcase}"
-    system(command)
+    # command = "mv #{ASSETS_ROOT}/user_#{s.name} #{ASSETS_ROOT}/user_#{s.name.downcase}"
+    # system(command)
     # if s.name.downcase != s.name
     #   puts "not equal"
     #   s.name = s.name.downcase
@@ -40,6 +40,12 @@ task :downcase => :environment do
     #   command = "mv #{ASSETS_ROOT}/user_#{s.name} #{ASSETS_ROOT}/user_#{s.name.downcase}"
     #   system(command)
     # end
+  end
+  Dir.foreach("#{ASSETS_ROOT}") do |e|
+    if e.downcase != e
+      command = "mv #{ASSETS_ROOT}/#{e} #{ASSETS_ROOT}/#{e.downcase}"
+      system(command)
+    end
   end
 end
 
