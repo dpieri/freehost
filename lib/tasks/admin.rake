@@ -32,9 +32,11 @@ task :downcase => :environment do
   subs = Subdomain.find(:all)
   subs.each do |s|
     if s.name.downcase != s.name
+      puts "not equal"
       s.name = s.name.downcase
       s.save
       command = "mv #{ASSETS_ROOT}/user_#{s.name} #{ASSETS_ROOT}/user_#{s.name.downcase}"
+      system(command)
     end
   end
 end
