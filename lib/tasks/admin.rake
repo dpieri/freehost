@@ -43,6 +43,7 @@ task :downcase => :environment do
   end
   Dir.foreach("#{ASSETS_ROOT}") do |e|
     if e.downcase != e
+      puts "moving #{e}"
       command = "mv #{ASSETS_ROOT}/#{e} #{ASSETS_ROOT}/#{e.downcase}"
       system(command)
     end
