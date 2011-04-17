@@ -11,6 +11,9 @@ class SubdomainsController < ApplicationController
     if params[:subdomain][:name].match(/\s/)
       flash[:error] = "Please choose a subdomain name without spaces"
       redirect_to root_path and return
+    elsif params[:subdomain][:name].match(/^[^a-z]/)
+      flash[:error] = "Subdomain must start with a character form a to z"
+      redirect_to root_path and return
     elsif params[:subdomain][:name].match(/\./)
       flash[:error] = "Please choose a subdomain name without periods"
       redirect_to root_path and return
