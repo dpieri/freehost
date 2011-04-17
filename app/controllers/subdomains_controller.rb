@@ -14,6 +14,9 @@ class SubdomainsController < ApplicationController
     elsif params[:subdomain][:name].match(/^[^a-z]/)
       flash[:error] = "Subdomain must start with a character form a to z"
       redirect_to root_path and return
+    elsif params[:subdomain][:name].length > 29
+      flash[:error] = "Subdomains should be less than 30 characters long please"
+      redirect_to root_path and return
     elsif params[:subdomain][:name].match(/\./)
       flash[:error] = "Please choose a subdomain name without periods"
       redirect_to root_path and return

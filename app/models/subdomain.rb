@@ -2,6 +2,7 @@ class Subdomain < ActiveRecord::Base
   belongs_to :user
   
   validates_uniqueness_of :name
+  validates_length_of :name, :maximum => 30, :on => :create #doesn't do anything right now
   
   def self.find_by_subdomain(requested)
     found = Subdomain.where(:name => requested).first
