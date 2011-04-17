@@ -7,6 +7,7 @@ FreeHost::Application.routes.draw do
   
   match '/admin/files/' => "admin#directory"
   match "admin/delete_file" => "admin#delete_file"
+  match "admin/delete_subdomain" => "admin#delete_subdomain"
   match "/admin/:subdomain" => "admin#index"
   match '/about' => "home#about"
   match '/faq' => 'home#faq'

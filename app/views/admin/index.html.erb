@@ -15,9 +15,17 @@
 			<div class="headerbar">Subdomains</div>
 			<ul>
 				<% @subdomains.each do |s|%>
-					<%= raw("<strong>") if s == @subdomain%>
-					<%= link_to raw("<li>/#{s.name}</li>") , "/admin/#{s.name}"%>
-					<%= raw("</strong>") if s == @subdomain%>
+					<li>			
+						<div class="subdomain_link">
+							<a href="/admin/<%=s.name%>">
+								<%= raw("<strong>") if s == @subdomain%>
+								<%=s.name%>
+								<%= raw("</strong>") if s == @subdomain%>
+							</a>
+						</div>
+						<%= link_to "remove", "/admin/delete_subdomain?subdomain=#{@subdomain.name}", :class => 'remove', 
+						:confirm => "Are you sure you want to give up this subdomain? All files under this subdomain will be deleted"%>
+					</li>
 				<% end %>
 				<li class="last">
 					<%= form_for @new_subdomain do |s|%>

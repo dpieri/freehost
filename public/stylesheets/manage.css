@@ -55,28 +55,34 @@
 
 #leftboxes_container .col_left ul li{
 	margin: 				0px 20px 0px 20px;
-	padding-bottom:			20px;
-	padding-top:			20px;
 	font-size: 				18px;
-}
-#leftboxes_container .col_left ul a li{
 	border-bottom: 			1px solid #ccc;
+}
+
+#leftboxes_container .col_left .subdomain_link a{
+	display: block;
+	position: relative;
+	left: -20px;
+	width: 180px;
+	padding: 20px 20px 20px 20px;
+}
+
+#leftboxes_container .col_left .subdomain_link a:hover{
+	background-color: 		#fee4d5;
 }
 
 #leftboxes_container .col_left ul #head{
 	background-color: red;
 }
 
-#leftboxes_container .col_left ul a{
+#leftboxes_container .col_left ul {
 	display: 				block;
 }
-#leftboxes_container .col_left ul a:hover{
-	background-color: 		#fee4d5;
-}
 
-.last{
-	width:					220px;
-	border-bottom: 			0px;
+
+#leftboxes_container .col_left ul .last{
+	padding: 20px 0 20px 0 ;
+	border-bottom: 0px;
 }
 input[type=text] {
     font-size: 				18px;
@@ -147,7 +153,7 @@ a.boxed{
 
 
 /* FILE UPLOAD AND REMOVE----------------------------------------------- */
-#leftboxes_container .col_right ul li:hover .remove{  /*CSS DAWG!!*/
+#leftboxes_container .col_right ul li:hover .remove, #leftboxes_container .col_left ul li:hover .remove{  /*CSS!!*/
 	visibility: visible;
 }
 .remove{
@@ -158,4 +164,9 @@ a.boxed{
 	height:					10px;
 	margin:					6px 5px 0 0;
 	background:				url('/images/x_small.png');
+}
+
+#leftboxes_container .col_left ul li .remove{
+	position: relative;
+	top: -40px;
 }

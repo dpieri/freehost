@@ -3,8 +3,12 @@
 
 <%= form_for @subdomain, :html => {:multipart => true} do |s|%>	
 	<div class="step orange">Claim a subdomain<br><br>
-		<%= s.text_field :name, :class => 'subdomain', :placeholder=>"Your name", :value => "" %>
+		<div id="sub_error" style="display:none">
+			Subdomains must start with a character from a to z
+		</div>
+		<%= s.text_field :name, :class => 'subdomain', :placeholder=>"Your name", :value => "", :required => true, :maxlength => 29 %>
 		<%= s.label " .coralrift.com", :id=>"logotype"%>
+
 	</div>
 	<div class="step_arrow"></div>
 	<div class="step orange">
@@ -37,4 +41,26 @@
 		$("#temp_file").val(responseJSON.temp_file);
 	  }
 	});
+	
+	$('#subdomain_name').keyup(function(event){
+		check_subdomain();
+	});
+	
+	var check_subdomain = function(){
+		value = $('#subdomain_name').val()
+		var show_message = false;
+		if (/^[^a-z]/.test(value)){
+			show_message = true;
+			$('#sub_error').html("Subdomains must start with a character from a to z");
+		} else if (/\s/.test(value)){
+			show_message = true;
+			$('#sub_error').html("No spaces please");
+		}
+		
+		if (show_message){
+			$('#sub_error').show();
+		} else {
+			$('#sub_error').hide();
+		}
+	}
 </script>
