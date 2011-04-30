@@ -854,7 +854,7 @@ qq.UploadButton.prototype = {
  */
 qq.UploadHandlerAbstract = function(o){
     this._options = {
-        debug: false,
+        debug: true,
         action: '/upload.php',
         // maximum number of concurrent uploads        
         maxConnections: 999,
